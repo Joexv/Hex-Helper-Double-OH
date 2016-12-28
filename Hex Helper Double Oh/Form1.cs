@@ -9,8 +9,13 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Globalization;
+using System.Resources;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
-namespace WindowsFormsApplication1
+namespace HHOHOH
 {
     public partial class Form1 : Form
     {
@@ -20,6 +25,11 @@ namespace WindowsFormsApplication1
         }
 
         #region Offsets and Values
+        int lanInt = 0;
+
+        ResourceManager res_man;    // declare Resource manager to access to specific cultureinfo
+        CultureInfo cul;            // declare culture info
+
         string fileLocation;
         bool FireRed = false;
         bool LeafGreen = false;
@@ -70,7 +80,7 @@ namespace WindowsFormsApplication1
         long Repel8_1 = 0xA1A68;
         long Repel9 = 0x1BFB66;
 
-        byte[] oRepel1 = {0xD0, 0x0C, 0x4D, 0x28, 0x1C, 0xEB, 0xF7, 0x4B, 0xFA, 0x00, 0x04, 0x00, 0x0C, 0x00, 0x28, 0x14, 0xD0, 0x44, 0x1E, 0x24, 0x04, 0x24, 0x0C, 0x28, 0x1C, 0x21, 0x1C, 0xEB, 0xF7, 0x4E, 0xFA, 0x00, 0x2C, 0x0B, 0xD1, 0x04, 0x48, 0xE6, 0xF7, 0xF9, 0xFC, 0x01, 0x20, 0x07, 0xE0, 0x00};
+        byte[] oRepel1 = {0x0C, 0x4D, 0x28, 0x1C, 0xEB, 0xF7, 0x4B, 0xFA, 0x00, 0x04, 0x00, 0x0C, 0x00, 0x28, 0x14, 0xD0, 0x44, 0x1E, 0x24, 0x04, 0x24, 0x0C, 0x28, 0x1C, 0x21, 0x1C, 0xEB, 0xF7, 0x4E, 0xFA, 0x00, 0x2C, 0x0B, 0xD1, 0x04, 0x48, 0xE6, 0xF7, 0xF9, 0xFC, 0x01, 0x20, 0x07, 0xE0, 0x00, 0x00};
         byte[] oRepel2 = { 0x04 };
         byte[] oRepel3 = { 0x18 };
         byte[] oRepel45 = { 0x0D };
@@ -179,9 +189,41 @@ namespace WindowsFormsApplication1
         byte[] oRFlagB = { 0x12, 0xF0, 0x49, 0xFE };
         #endregion
 
+        void switch_language()
+        {
+            if (lanInt == 1)
+            {
+                cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
+            }
+            else if (lanInt == 2)                                           
+            {
+                cul = CultureInfo.CreateSpecificCulture("fr");     //create culture for french
+            }
+            else if (lanInt == 3)                                           
+            {
+                cul = CultureInfo.CreateSpecificCulture("sp");     //create culture for spanish
+            }
+            else
+            {
+                cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
+            }
+            #region strings
+            statusLabel.Text = res_man.GetString("welcome_Status", cul);
+
+            #endregion
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            lanInt = 1;
+            MaximizeBox = false;
             tabControl1.Appearance = TabAppearance.FlatButtons; tabControl1.ItemSize = new Size(0, 1); tabControl1.SizeMode = TabSizeMode.Fixed;
+
+            #region Change Language for default text
+            res_man = new ResourceManager("HHOHOH.Resources.Res", typeof(Form1).Assembly);
+            switch_language();
+
+            #endregion
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -396,23 +438,13 @@ namespace WindowsFormsApplication1
                         checkBox12.CheckedChanged += checkBox12_CheckedChanged;
                         checkBox13.CheckedChanged += checkBox13_CheckedChanged;
                         checkBox14.CheckedChanged += checkBox14_CheckedChanged;
-                        #endregion
+                    #endregion
 
-                        #region Change ROM Information
-                        ToolStripMenuItem[] items = new ToolStripMenuItem[2]; // You would obviously calculate this value at runtime
-                        int i = 0;
-                        items[i] = new ToolStripMenuItem();
-                        items[i].Name = "ROMInfo" + i.ToString();
-                        items[i].Text = Path.GetFileName(ofd.FileName);
-                        i = 1;
-                        items[i] = new ToolStripMenuItem();
-                        items[i].Name = "ROMInfo" + i.ToString();
-                        items[i].Text = "Fire Red : BPRE";
-                        ROMInfo.DropDownItems.Clear();
-                        ROMInfo.DropDownItems.AddRange(items);
-                        #endregion
-                        #endregion
-                    }
+                    #region Change ROM Information
+                    toolStripStatusLabel3.Text = "Fire Red BPRE";
+                    #endregion
+                    #endregion
+                }
                     if (LeafGreen == true)
                     {
                         tabControl1.SelectedTab = lgTab;
@@ -506,6 +538,10 @@ namespace WindowsFormsApplication1
                 if (GetBytesToString(TempByte) == GetBytesToString(originalBytes))
                 {
                     returnValue = false;
+                }
+                if (GetBytesToString(TempByte) != GetBytesToString(originalBytes))
+                {
+                    returnValue = true;
                 }
                 if (debuggingMode == true)
                 {
@@ -690,7 +726,7 @@ namespace WindowsFormsApplication1
                         string S1 = vOut4.ToString();
                         string S2 = vOut5.ToString();
                         string S3 = vOut6.ToString();
-                        MessageBox.Show("Success!");
+                        statusLabel.Text = "BW Repel System Added";
                     }
                     catch
                     {
@@ -713,6 +749,7 @@ namespace WindowsFormsApplication1
                 WriteData(oRepel8, Repel8);
                 WriteData(oRepel8_1, Repel8_1);
                 WriteData(oRepel9, Repel9);
+                statusLabel.Text = "BW Repel System Removed";
             }
             #endregion
         }
@@ -725,6 +762,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(nFlash, frFlash); ;  //stuff here for file writing
+                    statusLabel.Text = "Flashbacks have been removed";
                 }
                 catch
                 {
@@ -736,6 +774,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oFlash, frFlash); ;  //stuff here for file writing
+                    statusLabel.Text = "Flashbacks have been added";
                 }
                 catch
                 {
@@ -753,6 +792,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(nRun, frRun); ;  //stuff here for file writing
+                    statusLabel.Text = "Running indoors Added";
                 }
                 catch
                 {
@@ -764,6 +804,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oRun, frRun); ;  //stuff here for file writing
+                    statusLabel.Text = "Running indoors removed";
                 }
                 catch
                 {
@@ -782,7 +823,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(nDex, frDex);  //stuff here for file writing
                     WriteData(nDex, frDex2);
-                    MessageBox.Show("Success!");
+                    statusLabel.Text = "Fire Red Dex Fix has been added";
                 }
                 catch
                 {
@@ -795,6 +836,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(oDex, frDex);  //stuff here for file writing
                     WriteData(oDex, frDex2);
+                    statusLabel.Text = "Fire Red Dex Fix has been removed";
                 }
                 catch
                 {
@@ -813,6 +855,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(nGrass, Grass);  //stuff here for file writing
                     WriteData(nGrass2, Grass2);
+                    statusLabel.Text = "Tall Grass fix has been added";
                 }
                 catch
                 {
@@ -825,6 +868,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(oGrass, Grass);  //stuff here for file writing
                     WriteData(oGrass2, Grass2);
+                    statusLabel.Text = "Tall Grass fix has been removed";
                 }
                 catch
                 {
@@ -842,6 +886,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(nMew, frMew);  //stuff here for file writing
+                    statusLabel.Text = "Forced Mew obey added";
                 }
                 catch
                 {
@@ -853,6 +898,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oMew, frMew);  //stuff here for file writing
+                    statusLabel.Text = "Forced Mew obey removed";
                 }
                 catch
                 {
@@ -872,6 +918,7 @@ namespace WindowsFormsApplication1
                     WriteData(nEgg1, Egg1f);  //stuff here for file writing
                     WriteData(nEgg2, Egg2f);
                     WriteData(nEgg3, Egg3f);
+                    statusLabel.Text = "Eggs hatch at level 1";
                 }
                 catch
                 {
@@ -885,6 +932,7 @@ namespace WindowsFormsApplication1
                     WriteData(oEgg1, Egg1f);  //stuff here for file writing
                     WriteData(oEgg2, Egg2f);
                     WriteData(oEgg2, Egg3f);
+                    statusLabel.Text = "Eggs hatch at level 5";
                 }
                 catch
                 {
@@ -902,6 +950,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(newIV, FRLGIV);  //stuff here for file writing
+                    statusLabel.Text = "Added fix for legendary IV RNG";
                 }
                 catch
                 {
@@ -913,6 +962,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oIV, FRLGIV);  //stuff here for file writing
+                    statusLabel.Text = "Removed fix for legendary IV RNG";
                 }
                 catch
                 {
@@ -931,6 +981,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(HM, FRHM);  //stuff here for file writing
                     WriteData(HM, FRHM2);
+                    statusLabel.Text = "HMs are deletable";
                 }
                 catch
                 {
@@ -943,6 +994,7 @@ namespace WindowsFormsApplication1
                 {
                     WriteData(oHM, FRHM);  //stuff here for file writing
                     WriteData(oHM, FRHM2);
+                    statusLabel.Text = "HMs cannot be deleted";
                 }
                 catch
                 {
@@ -960,6 +1012,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(NDEvoBytes, NDEvo);  //stuff here for file writing
+                    statusLabel.Text = "Evolve Pokemon without national dex";
                 }
                 catch
                 {
@@ -971,6 +1024,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oNDEvo, NDEvo);  //stuff here for file writing
+                    statusLabel.Text = "National dex required for evolving";
                 }
                 catch
                 {
@@ -992,6 +1046,7 @@ namespace WindowsFormsApplication1
                     WriteData(SeenB, Seen1);
                     WriteData(SeenB, Seen2);
                     WriteData(SeenB, Seen3);
+                    statusLabel.Text = "Seen Pokemon now displayed in menu";
                 }
                 catch
                 {
@@ -1006,6 +1061,7 @@ namespace WindowsFormsApplication1
                     WriteData(SeenO, Seen1);
                     WriteData(SeenO, Seen2);
                     WriteData(SeenO, Seen3);
+                    statusLabel.Text = "Caught Pokemon now displayed in menu";
                 }
                 catch
                 {
@@ -1023,6 +1079,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(RFlagB, RFlag);  //stuff here for file writing
+                    statusLabel.Text = "Removed flag check for running";
                 }
                 catch
                 {
@@ -1034,6 +1091,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oRFlagB, RFlag);  //stuff here for file writing
+                    statusLabel.Text = "Added flag check for running";
                 }
                 catch
                 {
@@ -1056,6 +1114,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(PoisonB, Poison);  //stuff here for file writing
+                    statusLabel.Text = "Poison won't work in OW";
                 }
                 catch
                 {
@@ -1067,6 +1126,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(oPoisonB, Poison);  //stuff here for file writing
+                    statusLabel.Text = "Poison works like normal";
                 }
                 catch
                 {
@@ -1084,6 +1144,7 @@ namespace WindowsFormsApplication1
                 try
                 {
                     WriteData(AMapFixA, AMapFix);
+                    statusLabel.Text = "A-Map crash fixed";
                 }
                 catch
                 {
@@ -1098,6 +1159,7 @@ namespace WindowsFormsApplication1
                     try
                     {
                         WriteData(AMapFixRemoval, AMapFix);
+                        statusLabel.Text = "A-Map crash added back in";
                     }
                     catch
                     {
@@ -1147,6 +1209,24 @@ namespace WindowsFormsApplication1
         private void reopenToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lanInt = 1;
+            switch_language();
+        }
+
+        private void frenchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lanInt = 2;
+            switch_language();
+        }
+
+        private void spanishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lanInt = 3;
+            switch_language();
         }
     }
 }

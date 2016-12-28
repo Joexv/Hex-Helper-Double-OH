@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hex Helper Double Oh", "Hex Helper Double Oh\Hex Helper Double Oh.csproj", "{DBFBB557-3DDD-4974-9B50-DAB0B8714D54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHOHOH", "Hex Helper Double Oh\HHOHOH.csproj", "{DBFBB557-3DDD-4974-9B50-DAB0B8714D54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

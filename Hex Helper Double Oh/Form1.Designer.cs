@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace HHOHOH
 {
     partial class Form1
     {
@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.blankTab = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.frTab = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -69,17 +71,25 @@
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.open = new System.Windows.Forms.ToolStripMenuItem();
-            this.ROMInfo = new System.Windows.Forms.ToolStripMenuItem();
-            this.noROMOpenSillyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debuggingModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frenchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.blankTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.frTab.SuspendLayout();
             this.dvTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,19 +104,30 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(327, 304);
+            this.tabControl1.Size = new System.Drawing.Size(327, 298);
             this.tabControl1.TabIndex = 0;
             // 
             // blankTab
             // 
+            this.blankTab.Controls.Add(this.pictureBox1);
             this.blankTab.Controls.Add(this.label1);
             this.blankTab.Location = new System.Drawing.Point(4, 22);
             this.blankTab.Name = "blankTab";
             this.blankTab.Padding = new System.Windows.Forms.Padding(3);
-            this.blankTab.Size = new System.Drawing.Size(319, 278);
+            this.blankTab.Size = new System.Drawing.Size(319, 272);
             this.blankTab.TabIndex = 5;
             this.blankTab.Text = "Blank";
             this.blankTab.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HHOHOH.Properties.Resources.hex;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(306, 247);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -137,7 +158,7 @@
             this.frTab.Location = new System.Drawing.Point(4, 22);
             this.frTab.Name = "frTab";
             this.frTab.Padding = new System.Windows.Forms.Padding(3);
-            this.frTab.Size = new System.Drawing.Size(319, 278);
+            this.frTab.Size = new System.Drawing.Size(319, 272);
             this.frTab.TabIndex = 0;
             this.frTab.Text = "Fire Red";
             this.frTab.UseVisualStyleBackColor = true;
@@ -146,7 +167,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(283, 249);
+            this.button1.Location = new System.Drawing.Point(283, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 23);
             this.button1.TabIndex = 14;
@@ -313,7 +334,7 @@
             this.eTab.Location = new System.Drawing.Point(4, 22);
             this.eTab.Name = "eTab";
             this.eTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eTab.Size = new System.Drawing.Size(319, 278);
+            this.eTab.Size = new System.Drawing.Size(319, 272);
             this.eTab.TabIndex = 1;
             this.eTab.Text = "Emerald";
             this.eTab.UseVisualStyleBackColor = true;
@@ -322,7 +343,7 @@
             // 
             this.lgTab.Location = new System.Drawing.Point(4, 22);
             this.lgTab.Name = "lgTab";
-            this.lgTab.Size = new System.Drawing.Size(319, 278);
+            this.lgTab.Size = new System.Drawing.Size(319, 272);
             this.lgTab.TabIndex = 2;
             this.lgTab.Text = "Leaf Green";
             this.lgTab.UseVisualStyleBackColor = true;
@@ -331,7 +352,7 @@
             // 
             this.sTab.Location = new System.Drawing.Point(4, 22);
             this.sTab.Name = "sTab";
-            this.sTab.Size = new System.Drawing.Size(319, 278);
+            this.sTab.Size = new System.Drawing.Size(319, 272);
             this.sTab.TabIndex = 3;
             this.sTab.Text = "Ruby";
             this.sTab.UseVisualStyleBackColor = true;
@@ -340,7 +361,7 @@
             // 
             this.rTab.Location = new System.Drawing.Point(4, 22);
             this.rTab.Name = "rTab";
-            this.rTab.Size = new System.Drawing.Size(319, 278);
+            this.rTab.Size = new System.Drawing.Size(319, 272);
             this.rTab.TabIndex = 4;
             this.rTab.Text = "Sapphire";
             this.rTab.UseVisualStyleBackColor = true;
@@ -365,14 +386,14 @@
             this.dvTab.Location = new System.Drawing.Point(4, 22);
             this.dvTab.Name = "dvTab";
             this.dvTab.Padding = new System.Windows.Forms.Padding(3);
-            this.dvTab.Size = new System.Drawing.Size(319, 278);
+            this.dvTab.Size = new System.Drawing.Size(319, 272);
             this.dvTab.TabIndex = 6;
             this.dvTab.Text = "Default Values";
             this.dvTab.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(187, 249);
+            this.button3.Location = new System.Drawing.Point(187, 243);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(109, 23);
             this.button3.TabIndex = 27;
@@ -383,7 +404,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 249);
+            this.button2.Location = new System.Drawing.Point(6, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 23);
             this.button2.TabIndex = 26;
@@ -393,7 +414,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(65, 249);
+            this.button16.Location = new System.Drawing.Point(66, 243);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(115, 23);
             this.button16.TabIndex = 15;
@@ -546,7 +567,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.open,
-            this.ROMInfo,
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -561,27 +581,14 @@
             this.open.Text = "Open";
             this.open.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
-            // ROMInfo
-            // 
-            this.ROMInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.noROMOpenSillyToolStripMenuItem});
-            this.ROMInfo.Name = "ROMInfo";
-            this.ROMInfo.Size = new System.Drawing.Size(112, 20);
-            this.ROMInfo.Text = "ROM Information";
-            // 
-            // noROMOpenSillyToolStripMenuItem
-            // 
-            this.noROMOpenSillyToolStripMenuItem.Name = "noROMOpenSillyToolStripMenuItem";
-            this.noROMOpenSillyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.noROMOpenSillyToolStripMenuItem.Text = "No ROM open silly";
-            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debuggingModeToolStripMenuItem});
+            this.debuggingModeToolStripMenuItem,
+            this.languageToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.settingsToolStripMenuItem.Text = "More";
             // 
             // debuggingModeToolStripMenuItem
             // 
@@ -595,37 +602,109 @@
             // oNToolStripMenuItem
             // 
             this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
-            this.oNToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.oNToolStripMenuItem.Text = "on";
             this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
             // 
             // oFFToolStripMenuItem
             // 
             this.oFFToolStripMenuItem.Name = "oFFToolStripMenuItem";
-            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.oFFToolStripMenuItem.Text = "-OFF-";
             this.oFFToolStripMenuItem.Click += new System.EventHandler(this.oFFToolStripMenuItem_Click);
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.frenchToolStripMenuItem,
+            this.spanishToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.languageToolStripMenuItem.Text = "Language";
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // frenchToolStripMenuItem
+            // 
+            this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
+            this.frenchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frenchToolStripMenuItem.Text = "French";
+            this.frenchToolStripMenuItem.Click += new System.EventHandler(this.frenchToolStripMenuItem_Click);
+            // 
+            // spanishToolStripMenuItem
+            // 
+            this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
+            this.spanishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.spanishToolStripMenuItem.Text = "Spanish";
+            this.spanishToolStripMenuItem.Click += new System.EventHandler(this.spanishToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 330);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(352, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = false;
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(160, 17);
+            this.statusLabel.Text = "Welcome!";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabel2.Text = "ROM";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 349);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(352, 352);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Hex Helper - Double Oh";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.frTab.ResumeLayout(false);
             this.frTab.PerformLayout();
             this.dvTab.ResumeLayout(false);
             this.dvTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,12 +753,19 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ToolStripMenuItem ROMInfo;
-        private System.Windows.Forms.ToolStripMenuItem noROMOpenSillyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debuggingModeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oFFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frenchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spanishToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 
