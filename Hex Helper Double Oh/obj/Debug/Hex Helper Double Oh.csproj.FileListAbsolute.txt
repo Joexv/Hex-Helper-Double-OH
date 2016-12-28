@@ -7,3 +7,12 @@ C:\Users\Joexv\Documents\Visual Studio 2015\Projects\Hex Helper Double Oh\Hex He
 C:\Users\Joexv\Documents\Visual Studio 2015\Projects\Hex Helper Double Oh\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.csproj.GenerateResource.Cache
 C:\Users\Joexv\Documents\Visual Studio 2015\Projects\Hex Helper Double Oh\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.exe
 C:\Users\Joexv\Documents\Visual Studio 2015\Projects\Hex Helper Double Oh\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.pdb
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\bin\Debug\Hex Helper Double Oh.exe.config
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.exe
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.pdb
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\bin\Debug\Hex Helper Double Oh.exe
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\bin\Debug\Hex Helper Double Oh.pdb
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.csprojResolveAssemblyReference.cache
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\HHOHOH.Properties.Resources.resources
+C:\Users\Joexv\Documents\GitHub\Hex-Helper-Double-OH\Hex Helper Double Oh\obj\Debug\Hex Helper Double Oh.csproj.GenerateResource.Cache

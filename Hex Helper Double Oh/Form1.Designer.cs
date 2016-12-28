@@ -29,52 +29,57 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.blankTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.frTab = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.eTab = new System.Windows.Forms.TabPage();
             this.lgTab = new System.Windows.Forms.TabPage();
             this.sTab = new System.Windows.Forms.TabPage();
             this.rTab = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.open = new System.Windows.Forms.ToolStripMenuItem();
-            this.undo = new System.Windows.Forms.ToolStripMenuItem();
-            this.blankTab = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.dvTab = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.Sound = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Frame = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.BTNMode = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BattleScene = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
-            this.BattleStyle = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TextSpeed = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Frame = new System.Windows.Forms.ComboBox();
+            this.BattleStyle = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BTNMode = new System.Windows.Forms.ComboBox();
+            this.BattleScene = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.open = new System.Windows.Forms.ToolStripMenuItem();
+            this.ROMInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.noROMOpenSillyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.debuggingModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oFFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
-            this.frTab.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.blankTab.SuspendLayout();
+            this.frTab.SuspendLayout();
             this.dvTab.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -91,6 +96,26 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(327, 304);
             this.tabControl1.TabIndex = 0;
+            // 
+            // blankTab
+            // 
+            this.blankTab.Controls.Add(this.label1);
+            this.blankTab.Location = new System.Drawing.Point(4, 22);
+            this.blankTab.Name = "blankTab";
+            this.blankTab.Padding = new System.Windows.Forms.Padding(3);
+            this.blankTab.Size = new System.Drawing.Size(319, 278);
+            this.blankTab.TabIndex = 5;
+            this.blankTab.Text = "Blank";
+            this.blankTab.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(226, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Please open a ROM. Otherwise snek will eat u";
             // 
             // frTab
             // 
@@ -116,13 +141,179 @@
             this.frTab.TabIndex = 0;
             this.frTab.Text = "Fire Red";
             this.frTab.UseVisualStyleBackColor = true;
+            this.frTab.Click += new System.EventHandler(this.frTab_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(283, 249);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = ">";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Location = new System.Drawing.Point(155, 148);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(131, 17);
+            this.checkBox14.TabIndex = 13;
+            this.checkBox14.Text = "Fix A-Map Face Down";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
+            // 
+            // checkBox13
+            // 
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.Location = new System.Drawing.Point(7, 148);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(118, 17);
+            this.checkBox13.TabIndex = 12;
+            this.checkBox13.Text = "Disable OW Poison";
+            this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkBox13.CheckedChanged += new System.EventHandler(this.checkBox13_CheckedChanged);
+            // 
+            // checkBox12
+            // 
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Location = new System.Drawing.Point(7, 125);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(114, 17);
+            this.checkBox12.TabIndex = 11;
+            this.checkBox12.Text = "Dex Seen in Menu";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkBox12.CheckedChanged += new System.EventHandler(this.checkBox12_CheckedChanged);
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(155, 102);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(149, 17);
+            this.checkBox11.TabIndex = 10;
+            this.checkBox11.Text = "Evo Without National Dex";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(155, 125);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(162, 17);
+            this.checkBox10.TabIndex = 9;
+            this.checkBox10.Text = "Running Shoes Without Flag";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(155, 79);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(110, 17);
+            this.checkBox9.TabIndex = 8;
+            this.checkBox9.Text = "Fix Legendary IVs";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(155, 56);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(113, 17);
+            this.checkBox8.TabIndex = 7;
+            this.checkBox8.Text = "Forced Mew Obey";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(155, 33);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(112, 17);
+            this.checkBox7.TabIndex = 6;
+            this.checkBox7.Text = "BW Repel System";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(155, 10);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(118, 17);
+            this.checkBox6.TabIndex = 5;
+            this.checkBox6.Text = "Remove Flashback";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(7, 102);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(102, 17);
+            this.checkBox5.TabIndex = 4;
+            this.checkBox5.Text = "Deleteable HMs";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(7, 79);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(96, 17);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "Level 1 Babies";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(7, 56);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(89, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "Fix Tall Grass";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(7, 33);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(86, 17);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "PokeDex Fix";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 10);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(104, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Running Indoors";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // eTab
             // 
             this.eTab.Location = new System.Drawing.Point(4, 22);
             this.eTab.Name = "eTab";
             this.eTab.Padding = new System.Windows.Forms.Padding(3);
-            this.eTab.Size = new System.Drawing.Size(314, 352);
+            this.eTab.Size = new System.Drawing.Size(319, 278);
             this.eTab.TabIndex = 1;
             this.eTab.Text = "Emerald";
             this.eTab.UseVisualStyleBackColor = true;
@@ -131,7 +322,7 @@
             // 
             this.lgTab.Location = new System.Drawing.Point(4, 22);
             this.lgTab.Name = "lgTab";
-            this.lgTab.Size = new System.Drawing.Size(314, 352);
+            this.lgTab.Size = new System.Drawing.Size(319, 278);
             this.lgTab.TabIndex = 2;
             this.lgTab.Text = "Leaf Green";
             this.lgTab.UseVisualStyleBackColor = true;
@@ -140,7 +331,7 @@
             // 
             this.sTab.Location = new System.Drawing.Point(4, 22);
             this.sTab.Name = "sTab";
-            this.sTab.Size = new System.Drawing.Size(314, 352);
+            this.sTab.Size = new System.Drawing.Size(319, 278);
             this.sTab.TabIndex = 3;
             this.sTab.Text = "Ruby";
             this.sTab.UseVisualStyleBackColor = true;
@@ -149,197 +340,10 @@
             // 
             this.rTab.Location = new System.Drawing.Point(4, 22);
             this.rTab.Name = "rTab";
-            this.rTab.Size = new System.Drawing.Size(314, 352);
+            this.rTab.Size = new System.Drawing.Size(319, 278);
             this.rTab.TabIndex = 4;
             this.rTab.Text = "Sapphire";
             this.rTab.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.open,
-            this.undo});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(352, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // open
-            // 
-            this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(48, 20);
-            this.open.Text = "Open";
-            this.open.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // undo
-            // 
-            this.undo.Enabled = false;
-            this.undo.Name = "undo";
-            this.undo.Size = new System.Drawing.Size(48, 20);
-            this.undo.Text = "Undo";
-            this.undo.Click += new System.EventHandler(this.undo_Click);
-            // 
-            // blankTab
-            // 
-            this.blankTab.Controls.Add(this.label1);
-            this.blankTab.Location = new System.Drawing.Point(4, 22);
-            this.blankTab.Name = "blankTab";
-            this.blankTab.Padding = new System.Windows.Forms.Padding(3);
-            this.blankTab.Size = new System.Drawing.Size(319, 278);
-            this.blankTab.TabIndex = 5;
-            this.blankTab.Text = "Blank";
-            this.blankTab.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Please open a ROM. Otherwise snek will eat u";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 7);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(104, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Running Indoors";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 30);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(86, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "PokeDex Fix";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(7, 53);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(89, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Fix Tall Grass";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(7, 76);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(96, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Level 1 Babies";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(7, 99);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(102, 17);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Deleteable HMs";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(155, 7);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(118, 17);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "Remove Flashback";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(155, 30);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(112, 17);
-            this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "BW Repel System";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(155, 53);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(113, 17);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "Forced Mew Obey";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(155, 76);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(110, 17);
-            this.checkBox9.TabIndex = 8;
-            this.checkBox9.Text = "Fix Legendary IVs";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(155, 122);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(162, 17);
-            this.checkBox10.TabIndex = 9;
-            this.checkBox10.Text = "Running Shoes Without Flag";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(155, 99);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(149, 17);
-            this.checkBox11.TabIndex = 10;
-            this.checkBox11.Text = "Evo Without National Dex";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(7, 122);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(114, 17);
-            this.checkBox12.TabIndex = 11;
-            this.checkBox12.Text = "Dex Seen in Menu";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(7, 145);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(118, 17);
-            this.checkBox13.TabIndex = 12;
-            this.checkBox13.Text = "Disable OW Poison";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(155, 145);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(131, 17);
-            this.checkBox14.TabIndex = 13;
-            this.checkBox14.Text = "Fix A-Map Face Down";
-            this.checkBox14.UseVisualStyleBackColor = true;
             // 
             // dvTab
             // 
@@ -366,6 +370,37 @@
             this.dvTab.Text = "Default Values";
             this.dvTab.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(187, 249);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(109, 23);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Reset";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(6, 249);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(30, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "<";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(65, 249);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(115, 23);
+            this.button16.TabIndex = 15;
+            this.button16.Text = "Apply Changes";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -386,6 +421,15 @@
             this.Sound.Size = new System.Drawing.Size(112, 21);
             this.Sound.TabIndex = 24;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Text Speed";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -394,6 +438,19 @@
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 23;
             this.label7.Text = "Frame";
+            // 
+            // TextSpeed
+            // 
+            this.TextSpeed.FormattingEnabled = true;
+            this.TextSpeed.Items.AddRange(new object[] {
+            "Slow",
+            "Normal",
+            "Fast"});
+            this.TextSpeed.Location = new System.Drawing.Point(201, 14);
+            this.TextSpeed.Name = "TextSpeed";
+            this.TextSpeed.Size = new System.Drawing.Size(112, 21);
+            this.TextSpeed.TabIndex = 13;
+            this.TextSpeed.SelectedIndexChanged += new System.EventHandler(this.TextSpeed_SelectedIndexChanged);
             // 
             // Frame
             // 
@@ -424,6 +481,17 @@
             this.Frame.Size = new System.Drawing.Size(112, 21);
             this.Frame.TabIndex = 22;
             // 
+            // BattleStyle
+            // 
+            this.BattleStyle.FormattingEnabled = true;
+            this.BattleStyle.Items.AddRange(new object[] {
+            "Shift",
+            "Set"});
+            this.BattleStyle.Location = new System.Drawing.Point(201, 41);
+            this.BattleStyle.Name = "BattleStyle";
+            this.BattleStyle.Size = new System.Drawing.Size(112, 21);
+            this.BattleStyle.TabIndex = 14;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -432,6 +500,15 @@
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Button Mode";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Battle Style";
             // 
             // BTNMode
             // 
@@ -445,15 +522,6 @@
             this.BTNMode.Size = new System.Drawing.Size(112, 21);
             this.BTNMode.TabIndex = 20;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Battle Scene";
-            // 
             // BattleScene
             // 
             this.BattleScene.FormattingEnabled = true;
@@ -465,88 +533,78 @@
             this.BattleScene.Size = new System.Drawing.Size(112, 21);
             this.BattleScene.TabIndex = 18;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Battle Style";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Battle Scene";
             // 
-            // label3
+            // menuStrip1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Text Speed";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.open,
+            this.ROMInfo,
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(352, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button16
+            // open
             // 
-            this.button16.Location = new System.Drawing.Point(65, 249);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(115, 23);
-            this.button16.TabIndex = 15;
-            this.button16.Text = "Apply Changes";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.open.Name = "open";
+            this.open.Size = new System.Drawing.Size(48, 20);
+            this.open.Text = "Open";
+            this.open.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
-            // BattleStyle
+            // ROMInfo
             // 
-            this.BattleStyle.FormattingEnabled = true;
-            this.BattleStyle.Items.AddRange(new object[] {
-            "Shift",
-            "Set"});
-            this.BattleStyle.Location = new System.Drawing.Point(201, 41);
-            this.BattleStyle.Name = "BattleStyle";
-            this.BattleStyle.Size = new System.Drawing.Size(112, 21);
-            this.BattleStyle.TabIndex = 14;
+            this.ROMInfo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.noROMOpenSillyToolStripMenuItem});
+            this.ROMInfo.Name = "ROMInfo";
+            this.ROMInfo.Size = new System.Drawing.Size(112, 20);
+            this.ROMInfo.Text = "ROM Information";
             // 
-            // TextSpeed
+            // noROMOpenSillyToolStripMenuItem
             // 
-            this.TextSpeed.FormattingEnabled = true;
-            this.TextSpeed.Items.AddRange(new object[] {
-            "Slow",
-            "Normal",
-            "Fast"});
-            this.TextSpeed.Location = new System.Drawing.Point(201, 14);
-            this.TextSpeed.Name = "TextSpeed";
-            this.TextSpeed.Size = new System.Drawing.Size(112, 21);
-            this.TextSpeed.TabIndex = 13;
-            this.TextSpeed.SelectedIndexChanged += new System.EventHandler(this.TextSpeed_SelectedIndexChanged);
+            this.noROMOpenSillyToolStripMenuItem.Name = "noROMOpenSillyToolStripMenuItem";
+            this.noROMOpenSillyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.noROMOpenSillyToolStripMenuItem.Text = "No ROM open silly";
             // 
-            // button1
+            // settingsToolStripMenuItem
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(283, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.debuggingModeToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
             // 
-            // button2
+            // debuggingModeToolStripMenuItem
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 249);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 23);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.debuggingModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oNToolStripMenuItem,
+            this.oFFToolStripMenuItem});
+            this.debuggingModeToolStripMenuItem.Name = "debuggingModeToolStripMenuItem";
+            this.debuggingModeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.debuggingModeToolStripMenuItem.Text = "Debugging Mode";
             // 
-            // button3
+            // oNToolStripMenuItem
             // 
-            this.button3.Location = new System.Drawing.Point(187, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 23);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Reset";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.oNToolStripMenuItem.Name = "oNToolStripMenuItem";
+            this.oNToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oNToolStripMenuItem.Text = "on";
+            this.oNToolStripMenuItem.Click += new System.EventHandler(this.oNToolStripMenuItem_Click);
+            // 
+            // oFFToolStripMenuItem
+            // 
+            this.oFFToolStripMenuItem.Name = "oFFToolStripMenuItem";
+            this.oFFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oFFToolStripMenuItem.Text = "-OFF-";
+            this.oFFToolStripMenuItem.Click += new System.EventHandler(this.oFFToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -560,14 +618,14 @@
             this.Text = "Hex Helper - Double Oh";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            this.frTab.ResumeLayout(false);
-            this.frTab.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.blankTab.ResumeLayout(false);
             this.blankTab.PerformLayout();
+            this.frTab.ResumeLayout(false);
+            this.frTab.PerformLayout();
             this.dvTab.ResumeLayout(false);
             this.dvTab.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,7 +638,6 @@
         private System.Windows.Forms.TabPage eTab;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem open;
-        private System.Windows.Forms.ToolStripMenuItem undo;
         private System.Windows.Forms.TabPage lgTab;
         private System.Windows.Forms.TabPage sTab;
         private System.Windows.Forms.TabPage rTab;
@@ -617,6 +674,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem ROMInfo;
+        private System.Windows.Forms.ToolStripMenuItem noROMOpenSillyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem debuggingModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oFFToolStripMenuItem;
     }
 }
 
