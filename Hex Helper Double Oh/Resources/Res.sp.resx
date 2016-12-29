@@ -117,6 +117,57 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="blankpage_Text" xml:space="preserve">
+    <value>Please Open a ROM or else snek will eat u</value>
+  </data>
+  <data name="bw_Text" xml:space="preserve">
+    <value>BW Repel System</value>
+  </data>
+  <data name="debugging_Menu" xml:space="preserve">
+    <value>Debugging Mode</value>
+  </data>
+  <data name="en_Menu" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="flashback_Text" xml:space="preserve">
+    <value>Remove Flashbacks</value>
+  </data>
+  <data name="fr_Menu" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="fr_Name" xml:space="preserve">
+    <value>Fire Red</value>
+  </data>
+  <data name="grass_Text" xml:space="preserve">
+    <value>Fix Tall Grass</value>
+  </data>
+  <data name="languages_Menu" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="mew_Text" xml:space="preserve">
+    <value>Forced Mew Obediance</value>
+  </data>
+  <data name="more_Menu" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="open_Menu" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="pokedex_Text" xml:space="preserve">
+    <value>Pokedex Fix</value>
+  </data>
+  <data name="running_Text" xml:space="preserve">
+    <value>Running Indoors</value>
+  </data>
+  <data name="sp_Menu" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Status_Add" xml:space="preserve">
+    <value>Added!</value>
+  </data>
+  <data name="Status_Remove" xml:space="preserve">
+    <value>Removed!</value>
+  </data>
   <data name="welcome_Status" xml:space="preserve">
     <value>Bienvenido!</value>
   </data>

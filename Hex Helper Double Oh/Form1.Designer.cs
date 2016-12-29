@@ -639,6 +639,7 @@
             // 
             // spanishToolStripMenuItem
             // 
+            this.spanishToolStripMenuItem.Enabled = false;
             this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
             this.spanishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.spanishToolStripMenuItem.Text = "Spanish";
@@ -660,7 +661,7 @@
             // 
             this.statusLabel.AutoSize = false;
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(160, 17);
+            this.statusLabel.Size = new System.Drawing.Size(180, 17);
             this.statusLabel.Text = "Welcome!";
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
