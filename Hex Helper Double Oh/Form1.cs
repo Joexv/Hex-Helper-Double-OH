@@ -11,6 +11,8 @@ using System.Resources;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Windows.Forms;
+using CodeIsle.LibIpsNet;
+using System.Diagnostics;
 
 namespace HHOHOH
 {
@@ -1106,6 +1108,7 @@ namespace HHOHOH
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog ofd2 = new OpenFileDialog();
 
             #region Open ROM
 
@@ -1393,6 +1396,34 @@ namespace HHOHOH
                 fileLocation = ofd.FileName;
                 //Form1.Size = (363, 462);
                 OpenROM = true;
+                try
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(@"C:\ProgramData\HexHelper\Backups\");
+                    if (!File.Exists(@"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + ".bak"))
+                    {
+                        File.Copy(fileLocation, @"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + ".bak");
+                    }
+                    else
+                    {
+                        int d = 0;
+                        for (int i = 1; i < 100; i++)
+                        {
+                            if (!File.Exists(@"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + i + ".bak"))
+                            {
+                                File.Copy(fileLocation, @"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + i + ".bak");
+                                i = 110;
+                                d = 1;
+                                statusLabel.Text = res_man.GetString("backup_Status", cul);
+                            }
+                        }
+                        if(d == 0)
+                        {
+                            statusLabel.Text = res_man.GetString("backup_Status_Failed", cul);
+                        }
+                    }
+
+                }
+                catch { }
                 br.Close();
 
                 #endregion Apply settings based on ROM
@@ -1444,6 +1475,7 @@ namespace HHOHOH
                 debuggingModeToolStripMenuItem.Text = res_man.GetString("debugging_Menu", cul);
                 settingsToolStripMenuItem.Text = res_man.GetString("more_Menu", cul);
                 languageToolStripMenuItem.Text = res_man.GetString("languages_Menu", cul);
+                openBackupFolderToolStripMenuItem.Text = res_man.GetString("backup_Menu", cul);
             }
             catch
             { MessageBox.Show("Something crashed while loading the languages files"); }
@@ -1460,18 +1492,31 @@ namespace HHOHOH
 
         private void WriteData(byte[] BytesToWrite, long Offset)
         {
-            if (OpenROM == true)
+            try
             {
-                BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                bw.BaseStream.Seek(Offset, SeekOrigin.Begin);
-                bw.Write(BytesToWrite);
-                bw.Close();
+                if (OpenROM == true)
+                {
+                    BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
+                    bw.BaseStream.Seek(Offset, SeekOrigin.Begin);
+                    bw.Write(BytesToWrite);
+                    bw.Close();
+                }
+                else
+                {
+                    statusLabel.Text = res_man.GetString("write_NoROM", cul);
+                }
             }
-            else
+            catch
             {
+                statusLabel.Text = res_man.GetString("write_ERROR", cul);
             }
         }
 
         #endregion Private Methods
+
+        private void openBackupFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"C:\ProgramData\HexHelper\Backups\");
+        }
     }
 }

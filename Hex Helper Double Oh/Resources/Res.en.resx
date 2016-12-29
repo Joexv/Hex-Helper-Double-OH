@@ -171,4 +171,19 @@
   <data name="welcome_Status" xml:space="preserve">
     <value>Welcome!</value>
   </data>
+  <data name="backup_Menu" xml:space="preserve">
+    <value>Open Backup Folder</value>
+  </data>
+  <data name="backup_Status" xml:space="preserve">
+    <value>Backup Created</value>
+  </data>
+  <data name="backup_Status_Failed" xml:space="preserve">
+    <value>Backup Failed</value>
+  </data>
+  <data name="write_ERROR" xml:space="preserve">
+    <value />
+  </data>
+  <data name="write_NoROM" xml:space="preserve">
+    <value>ROM Missing</value>
+  </data>
 </root>
