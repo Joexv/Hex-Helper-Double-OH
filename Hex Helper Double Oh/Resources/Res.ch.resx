@@ -117,20 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="amap_Text" xml:space="preserve">
+    <value>Correction d'un bogue face à face</value>
+  </data>
+  <data name="backup_Menu" xml:space="preserve">
+    <value>Ouvrir le dossier de sauvegarde</value>
+  </data>
+  <data name="backup_Status" xml:space="preserve">
+    <value>Création de sauvegarde</value>
+  </data>
+  <data name="backup_Status_Failed" xml:space="preserve">
+    <value>Échec de la sauvegarde</value>
+  </data>
   <data name="blankpage_Text" xml:space="preserve">
     <value>S'il vous plaît Ouvrez une ROM ou autrement snek vous mangera</value>
   </data>
   <data name="bw_Text" xml:space="preserve">
     <value>Système BW Repel</value>
   </data>
+  <data name="bw_Warning" xml:space="preserve">
+    <value>Ce hack est pour FireRed v1 seulement, et utilise l'espace libre pour environ 0x80 octets. Si vous avez utilisé cet espace, il l'écrasera et effacera vos données, ce qui pourrait entraîner une corruption ou un mauvais script. Cliquez sur Oui si vous comprenez les risques.</value>
+  </data>
   <data name="debugging_Menu" xml:space="preserve">
     <value>Mode de débogage</value>
+  </data>
+  <data name="dexSeen_Text" xml:space="preserve">
+    <value>Dex Vu dans le menu</value>
+  </data>
+  <data name="egg_Text" xml:space="preserve">
+    <value>Niveau 1 Bébés</value>
   </data>
   <data name="en_Menu" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="evo_Text" xml:space="preserve">
+    <value>Évolution sans Dex national</value>
+  </data>
   <data name="flashback_Text" xml:space="preserve">
     <value>Supprimer Flashbacks</value>
+  </data>
+  <data name="freespace_Warning" xml:space="preserve">
+    <value>Entrez un emplacement d'espace libre de 0x80 octets de longueur. Cochez '0x'.</value>
   </data>
   <data name="fr_Menu" xml:space="preserve">
     <value>Français</value>
@@ -138,8 +165,14 @@
   <data name="grass_Text" xml:space="preserve">
     <value>Fixer l'herbe haute</value>
   </data>
+  <data name="hm_Text" xml:space="preserve">
+    <value>Suppression des HM</value>
+  </data>
   <data name="languages_Menu" xml:space="preserve">
     <value>Langues</value>
+  </data>
+  <data name="legend_Text" xml:space="preserve">
+    <value>Fix Legendary IV RNG</value>
   </data>
   <data name="mew_Text" xml:space="preserve">
     <value>Obéissance Mew forcée</value>
@@ -147,11 +180,20 @@
   <data name="more_Menu" xml:space="preserve">
     <value>Plus</value>
   </data>
+  <data name="notice_Warning" xml:space="preserve">
+    <value>Avis</value>
+  </data>
   <data name="open_Menu" xml:space="preserve">
     <value>Ouvert</value>
   </data>
+  <data name="poison_Text" xml:space="preserve">
+    <value>Désactiver OW Poison</value>
+  </data>
   <data name="pokedex_Text" xml:space="preserve">
     <value>Pokedex Fix</value>
+  </data>
+  <data name="runFlag_Text" xml:space="preserve">
+    <value>Chaussures de course sans drapeau</value>
   </data>
   <data name="running_Text" xml:space="preserve">
     <value>Courir à l'intérieur</value>
@@ -165,67 +207,16 @@
   <data name="Status_Remove" xml:space="preserve">
     <value>Enlevé!</value>
   </data>
-  <data name="welcome_Status" xml:space="preserve">
-    <value>Bienvenue!</value>
-  </data>
-  <data name="amap_Text" xml:space="preserve">
-    <value>Correction d'un bogue face à face</value>
-  </data>
-  <data name="backup_Menu" xml:space="preserve">
-    <value>Ouvrir le dossier de sauvegarde</value>
-  </data>
-  <data name="backup_Status" xml:space="preserve">
-    <value>Création de sauvegarde</value>
-  </data>
-  <data name="backup_Status_Failed" xml:space="preserve">
-    <value>Échec de la sauvegarde</value>
-  </data>
-  <data name="bw_Warning" xml:space="preserve">
-    <value>Ce hack est pour FireRed v1 seulement, et utilise l'espace libre pour environ 0x80 octets. Si vous avez utilisé cet espace, il l'écrasera et effacera vos données, ce qui pourrait entraîner une corruption ou un mauvais script. Cliquez sur Oui si vous comprenez les risques.</value>
-  </data>
-  <data name="dexSeen_Text" xml:space="preserve">
-    <value>Dex Vu dans le menu</value>
-  </data>
-  <data name="egg_Text" xml:space="preserve">
-    <value>Niveau 1 Bébés</value>
-  </data>
-  <data name="evo_Text" xml:space="preserve">
-    <value>Évolution sans Dex national</value>
-  </data>
-  <data name="freespace_Warning" xml:space="preserve">
-    <value>Entrez un emplacement d'espace libre de 0x80 octets de longueur. Cochez '0x'.</value>
-  </data>
-  <data name="hm_Text" xml:space="preserve">
-    <value>Suppression des HM</value>
-  </data>
-  <data name="legend_Text" xml:space="preserve">
-    <value>Fix Legendary IV RNG</value>
-  </data>
-  <data name="notice_Warning" xml:space="preserve">
-    <value>Avis</value>
-  </data>
-  <data name="poison_Text" xml:space="preserve">
-    <value>Désactiver OW Poison</value>
-  </data>
-  <data name="runFlag_Text" xml:space="preserve">
-    <value>Chaussures de course sans drapeau</value>
-  </data>
   <data name="warning_Warning" xml:space="preserve">
     <value>Attention</value>
+  </data>
+  <data name="welcome_Status" xml:space="preserve">
+    <value>Bienvenue!</value>
   </data>
   <data name="write_ERROR" xml:space="preserve">
     <value>ERREUR</value>
   </data>
   <data name="write_NoROM" xml:space="preserve">
     <value>ROM manquant</value>
-  </data>
-  <data name="birch_Text" xml:space="preserve">
-    <value>Supprimer Birch Intro</value>
-  </data>
-  <data name="ev_Text" xml:space="preserve">
-    <value>252 EV Limite</value>
-  </data>
-  <data name="pomeg_Text" xml:space="preserve">
-    <value>Pomeg Correction des baies</value>
   </data>
 </root>

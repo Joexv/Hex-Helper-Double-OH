@@ -19,8 +19,26 @@ namespace HHOHOH
     public partial class Form1 : Form
     {
         #region Private Fields
+        private long eSeen = 0x31F96;
+        private byte[] eSeenB = { 0x00, 0x20 };
+        private long eSeen2 = 0x31FA4;
+        private long eSeen3 = 0x19A3B0;
+        private long eSeen4 = 0x19A3B8;
+        private byte[] eSeenBo = { 0x01, 0x20 };
 
-        //Amap fix
+        private long frEV = 0x439FC;
+        private long frEV2 = 0x43A02;
+
+        private long eEV = 0x6DC48;
+        private long eEV2 = 0x6DC4E;
+
+        private byte[] EV = { 0xFC };
+        private byte[] oEV = { 0xFF };
+
+        //private byte[] poisonScript = { 0xFD, 0x02, 0x00, 0xE7, 0xE9, 0xE6, 0xEA, 0xDD, 0xEA, 0xD9, 0xD8, 0x00, 0xE8, 0xDC, 0xD9, 0x00, 0xE4, 0xE3, 0xDD, 0xE7, 0xE3, 0xE2, 0xDD, 0xE2, 0xDB, 0xAD, 0xFE, 0xCE, 0xDC, 0xD9, 0x00, 0xE4, 0xE3, 0xDD, 0xE7, 0xE3, 0xE2, 0x00, 0xDA, 0xD5, 0xD8, 0xD9, 0xD8, 0x00, 0xD5, 0xEB, 0xD5, 0xED, 0xAB, 0xFB };
+
+        private byte[] oBerry = { 0x00, 0x29, 0x04, 0xD1 };
+
         private long AMapFix = 0x39fbf8;
 
         private byte[] AMapFixA = { 0xB5, 0xFF, 0x05, 0x08, };
@@ -33,8 +51,15 @@ namespace HHOHOH
 
         private long Background = 0x30882;
 
-        //Birch
         private long Birch = 0x308AC;
+
+        private byte[] oBirch = { 0xB1, 0x08, 0x03, 0x08 };
+
+        private byte[] oBackground = { 0xD1, 0xF7, 0x55, 0xF9 };
+
+        private byte[] oIntro = { 0xBB };
+
+        private byte[] IntroB = { 0x00 };
 
         private byte[] BirchB = { 0x31, 0x16, 0x03, 0x08 };
 
@@ -42,7 +67,6 @@ namespace HHOHOH
 
         private bool debuggingMode = false;
 
-        //Berry fix
         private long eBerry = 0x68FD2;
 
         private long Egg1 = 0x1C3200;
@@ -59,7 +83,6 @@ namespace HHOHOH
 
         private bool Emerald = false;
 
-        //Removable HMs
         private long EMHM = 0x1b6d14;
 
         private long EMHM2 = 0x6E7CC;
@@ -70,10 +93,8 @@ namespace HHOHOH
 
         private string fileLocation;
 
-        // declare culture info
         private bool FireRed = false;
 
-        //Pokedex Fix
         private long frDex = 0x10583C;
 
         private long frDex2 = 0x105856;
@@ -86,7 +107,6 @@ namespace HHOHOH
 
         private long FRLGIV = 0x40A92;
 
-        //Mew fix
         private long frMew = 0x1D402;
 
         private long frRun = 0xBD494;
@@ -107,24 +127,20 @@ namespace HHOHOH
 
         private long lgDex2 = 0x10582E;
 
-        //FR offset in ROM
         private long lgFlash = 0x110F2C;
 
-        //FR offset in ROM
         private long lgRun = 0xBD468;
 
-        private IniFile MyIni = new IniFile(@"C:\ProgramData\HexHelper\Settings.ini");
+        private IniFile MyIni = new IniFile(Application.StartupPath + @"\Settings.ini");
 
         private byte[] nBerry = { 0x02, 0x29, 0x04, 0xDC };
 
-        //National Dex Evo
         private long NDEvo = 0xCE91A;
 
         private byte[] NDEvoBytes = { 0x00, 0x00, 0x14, 0xE0 };
 
         private byte[] nDex = { 0xff };
 
-        //Level 1 eggs
         private byte[] nEgg1 = { 0x01, 0x21 };
 
         private byte[] nEgg2 = { 0x01, 0x22 };
@@ -133,17 +149,14 @@ namespace HHOHOH
 
         private byte[] newIV = { 0x21, 0x68, 0x69, 0x60, 0x20, 0xE0 };
 
-        //RemoveFlashBack
         private byte[] nFlash = { 0x00, 0x1C, 0x0F, 0xE0 };
 
-        //Fixing Tall Grass
         private byte[] nGrass = { 0x00, 0x21, 0x00, 0x06, 0x00, 0x0e, 0x02, 0x28, 0x01, 0xd0, 0xd1, 0x28, 0x01, 0xd1, 0x01, 0x20, 0x00, 0xe0, 0x00, 0x20, 0x00, 0x21, 0x70, 0x47, 0x03, 0x28, 0xf5, 0xe7 };
 
         private byte[] nGrass2 = { 0x0C, 0x30, 0x09, 0xE0 };
 
         private byte[] nMew = { 0x00 };
 
-        //Repel
         private byte[] nRepel1 = { 0x0C, 0x48, 0xEB, 0xF7, 0x4C, 0xFA, 0x01, 0x06, 0x00, 0x29, 0x16, 0xD0, 0x41, 0x1E, 0x0C, 0x06, 0x0D, 0x0A, 0x07, 0x48, 0xEB, 0xF7, 0x51, 0xFA, 0x00, 0x2C, 0x0E, 0xD1, 0x03, 0x4C, 0x25, 0x80, 0x05, 0x48, 0xE6, 0xF7, 0xFA, 0xFC, 0x01, 0x20, 0x08, 0xE0, 0x30, 0xAD, 0x03, 0x02 };
 
         private byte[] nRepel2 = { 0x06 };
@@ -162,7 +175,6 @@ namespace HHOHOH
 
         private byte[] nRepel9 = { 0x00, 0x00, 0x00, 0xB5, 0x04, 0x48, 0x50, 0x21, 0x00, 0xF0, 0x01, 0xF8, 0x00, 0xBD, 0x00, 0x4A, 0x10, 0x47, 0x1D, 0x74, 0x07, 0x08, 0x99, 0x19, 0x0A, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
-        //Indoor Running
         private byte[] nRun = { 0x00 };
 
         private byte[] oDex = { 0x00 };
@@ -171,7 +183,6 @@ namespace HHOHOH
 
         private byte[] oEgg2 = { 0x05, 0x22 };
 
-        //bytes to remove feature
         private byte[] oFlash = { 0x00, 0x28, 0x0F, 0xD0 };
 
         private byte[] oGrass = { 0x00, 0xB5, 0x00, 0x06, 0x00, 0x0E, 0x02, 0x28, 0x01, 0xD0, 0xD1, 0x28, 0x01, 0xD1, 0x01, 0x20, 0x00, 0xE0, 0x00, 0x20, 0x02, 0xBC, 0x08, 0x47, 0x00, 0x20, 0x70, 0x47 };
@@ -210,12 +221,10 @@ namespace HHOHOH
 
         private byte[] oRFlagB = { 0x12, 0xF0, 0x49, 0xFE };
 
-        //bytes to remove feature
         private byte[] oRun = { 0x08 };
 
         private bool other = false;
 
-        //OW Poison
         private long Poison = 0x06D7C3;
 
         private byte[] PoisonB = { 0xE0 };
@@ -255,7 +264,6 @@ namespace HHOHOH
 
         private ResourceManager res_man;
 
-        //Run Without Flag
         private long RFlag = 0x05BA3A;
 
         private byte[] RFlagB = { 0x00, 0x00, 0x00, 0x00 };
@@ -488,7 +496,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(RFlagB, RFlag);  //stuff here for file writing
-                    statusLabel.Text = "Removed flag check for running";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -500,7 +508,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oRFlagB, RFlag);  //stuff here for file writing
-                    statusLabel.Text = "Added flag check for running";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -520,7 +528,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(NDEvoBytes, NDEvo);  //stuff here for file writing
-                    statusLabel.Text = "Evolve Pokemon without national dex";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -532,7 +540,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oNDEvo, NDEvo);  //stuff here for file writing
-                    statusLabel.Text = "National dex required for evolving";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -555,7 +563,7 @@ namespace HHOHOH
                     WriteData(SeenB, Seen1);
                     WriteData(SeenB, Seen2);
                     WriteData(SeenB, Seen3);
-                    statusLabel.Text = "Seen Pokemon now displayed in menu";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -570,7 +578,7 @@ namespace HHOHOH
                     WriteData(SeenO, Seen1);
                     WriteData(SeenO, Seen2);
                     WriteData(SeenO, Seen3);
-                    statusLabel.Text = "Caught Pokemon now displayed in menu";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -590,7 +598,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(PoisonB, Poison);  //stuff here for file writing
-                    statusLabel.Text = "Poison won't work in OW";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -602,7 +610,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oPoisonB, Poison);  //stuff here for file writing
-                    statusLabel.Text = "Poison works like normal";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -622,7 +630,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(AMapFixA, AMapFix);
-                    statusLabel.Text = "A-Map crash fixed";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -637,7 +645,7 @@ namespace HHOHOH
                     try
                     {
                         WriteData(AMapFixRemoval, AMapFix);
-                        statusLabel.Text = "A-Map crash added back in";
+                        statusLabel.Text = res_man.GetString("Status_Remove", cul);
                     }
                     catch
                     {
@@ -697,7 +705,7 @@ namespace HHOHOH
                 {
                     WriteData(nGrass, Grass);  //stuff here for file writing
                     WriteData(nGrass2, Grass2);
-                    statusLabel.Text = "Tall Grass fix has been added";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -710,7 +718,7 @@ namespace HHOHOH
                 {
                     WriteData(oGrass, Grass);  //stuff here for file writing
                     WriteData(oGrass2, Grass2);
-                    statusLabel.Text = "Tall Grass fix has been removed";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -732,7 +740,7 @@ namespace HHOHOH
                     WriteData(nEgg1, Egg1f);  //stuff here for file writing
                     WriteData(nEgg2, Egg2f);
                     WriteData(nEgg3, Egg3f);
-                    statusLabel.Text = "Eggs hatch at level 1";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -746,7 +754,7 @@ namespace HHOHOH
                     WriteData(oEgg1, Egg1f);  //stuff here for file writing
                     WriteData(oEgg2, Egg2f);
                     WriteData(oEgg2, Egg3f);
-                    statusLabel.Text = "Eggs hatch at level 5";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -767,7 +775,7 @@ namespace HHOHOH
                 {
                     WriteData(HM, FRHM);  //stuff here for file writing
                     WriteData(HM, FRHM2);
-                    statusLabel.Text = "HMs are deletable";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -780,7 +788,7 @@ namespace HHOHOH
                 {
                     WriteData(oHM, FRHM);  //stuff here for file writing
                     WriteData(oHM, FRHM2);
-                    statusLabel.Text = "HMs cannot be deleted";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -800,7 +808,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(nFlash, frFlash); ;  //stuff here for file writing
-                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -812,7 +820,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oFlash, frFlash); ;  //stuff here for file writing
-                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -829,10 +837,10 @@ namespace HHOHOH
 
             if (checkBox7.Checked == true)
             {
-                DialogResult result = MessageBox.Show("This hack is for FireRed v1 only, and uses the freespace for around 0x80 bytes. If you have used this space it will overwrite it and delete your data which could result in corruption or a bad script. Click yes if you understand the risks.", "Notice", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show(res_man.GetString("bw_Warning", cul), res_man.GetString("notice_Warning", cul), MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string input = Microsoft.VisualBasic.Interaction.InputBox("Please enter a location of free space 0x80 bytes in length.Leave out '0x'.", "FreeSpace", "efff00", 0, 0);
+                    string input = Microsoft.VisualBasic.Interaction.InputBox(res_man.GetString("freespace_Warning", cul), "FreeSpace", "efff00", 0, 0);
                     string vIn = input;
                     int vOut = Convert.ToInt32(input, 16);
                     // Store integer 182
@@ -945,7 +953,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(nMew, frMew);  //stuff here for file writing
-                    statusLabel.Text = "Forced Mew obey added";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -957,7 +965,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oMew, frMew);  //stuff here for file writing
-                    statusLabel.Text = "Forced Mew obey removed";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -977,7 +985,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(newIV, FRLGIV);  //stuff here for file writing
-                    statusLabel.Text = "Added fix for legendary IV RNG";
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
                 }
                 catch
                 {
@@ -989,7 +997,7 @@ namespace HHOHOH
                 try
                 {
                     WriteData(oIV, FRLGIV);  //stuff here for file writing
-                    statusLabel.Text = "Removed fix for legendary IV RNG";
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
                 }
                 catch
                 {
@@ -998,6 +1006,39 @@ namespace HHOHOH
             }
 
             #endregion Fix Legend IVs
+        }
+
+        private void checkBox23_CheckedChanged(object sender, EventArgs e)
+        {
+            #region EV Cap
+            if (checkBox23.Checked == true)
+            {
+                try
+                {
+                    WriteData(EV, frEV);  //stuff here for file writing
+                    WriteData(EV, frEV2);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox23.Checked == false)
+            {
+                try
+                {
+                    WriteData(oEV, frEV);  //stuff here for file writing
+                    WriteData(oEV, frEV2);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
         }
 
         private bool CheckPatch(byte[] originalBytes, long Offset, BinaryReader br, bool returnValue)
@@ -1058,7 +1099,7 @@ namespace HHOHOH
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(@"C:\ProgramData\HexHelper\Settings.ini"))
+            if (!File.Exists(Application.StartupPath + @"\Settings.ini"))
             {
                 ExtractSettings("Settings.ini");
                 lanInt = 1;
@@ -1067,7 +1108,7 @@ namespace HHOHOH
             {
                 fileIniData.Parser.Configuration.CommentString = "#";
                 //Check if user already exists
-                IniData parsedData = fileIniData.ReadFile(@"C:\ProgramData\HexHelper\Settings.ini");
+                IniData parsedData = fileIniData.ReadFile(Application.StartupPath + @"\Settings.ini");
                 lanInt = Int32.Parse(parsedData["Settings"]["Language"]);
             }
             MaximizeBox = false;
@@ -1108,7 +1149,7 @@ namespace HHOHOH
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            OpenFileDialog ofd2 = new OpenFileDialog();
+            //OpenFileDialog ofd2 = new OpenFileDialog();
 
             #region Open ROM
 
@@ -1211,6 +1252,7 @@ namespace HHOHOH
                     checkBox12.CheckedChanged -= checkBox12_CheckedChanged;
                     checkBox13.CheckedChanged -= checkBox13_CheckedChanged;
                     checkBox14.CheckedChanged -= checkBox14_CheckedChanged;
+                    checkBox23.CheckedChanged -= checkBox23_CheckedChanged;
 
                     #endregion disable check changes
 
@@ -1346,6 +1388,18 @@ namespace HHOHOH
 
                     #endregion Fix A-Map
 
+                    #region EV cap
+
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(oEV, frEV, br, patchINT);
+                    patchINT = +CheckPatch2(oEV, frEV2, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox23.Checked = true;
+                    }
+
+                    #endregion Seen instead of caught
+
                     #region ReEnable Checked Event
 
                     checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -1362,6 +1416,7 @@ namespace HHOHOH
                     checkBox12.CheckedChanged += checkBox12_CheckedChanged;
                     checkBox13.CheckedChanged += checkBox13_CheckedChanged;
                     checkBox14.CheckedChanged += checkBox14_CheckedChanged;
+                    checkBox23.CheckedChanged += checkBox23_CheckedChanged;
 
                     #endregion ReEnable Checked Event
 
@@ -1376,6 +1431,62 @@ namespace HHOHOH
                 if (LeafGreen == true)
                 {
                     tabControl1.SelectedTab = lgTab;
+                    #region Check Currently Applied patches
+
+                    #region disable check changes
+
+                    checkBox24.CheckedChanged -= checkBox24_CheckedChanged;
+                    checkBox25.CheckedChanged -= checkBox25_CheckedChanged;
+                    checkBox26.CheckedChanged -= checkBox26_CheckedChanged;
+                    checkBox27.CheckedChanged -= checkBox27_CheckedChanged;
+
+                    #endregion disable check changes
+
+                    #region Running Indoors
+
+                    checkBox24.Checked = CheckPatch(oRun, lgRun, br, returnValue);
+
+                    #endregion Running Indoors
+
+                    #region FR Pokedex Fix
+
+                    int patchINT = 0;
+                    patchINT = +CheckPatch2(oDex, lgDex, br, patchINT);
+                    patchINT = +CheckPatch2(oDex, lgDex2, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox25.Checked = true;
+                    }
+
+                    #endregion FR Pokedex Fix
+
+                    #region Flashback
+
+                    checkBox26.Checked = CheckPatch(oFlash, lgFlash, br, returnValue);
+
+                    #endregion Flashback
+
+                    #region Legendary IV fix
+
+                    checkBox27.Checked = CheckPatch(oIV, FRLGIV, br, returnValue);
+
+                    #endregion Legendary IV fix                 
+
+                    #region ReEnable Checked Event
+
+                    checkBox24.CheckedChanged += checkBox24_CheckedChanged;
+                    checkBox25.CheckedChanged += checkBox25_CheckedChanged;
+                    checkBox26.CheckedChanged += checkBox26_CheckedChanged;
+                    checkBox27.CheckedChanged += checkBox27_CheckedChanged;
+                    #endregion ReEnable Checked Event
+
+                    #region Change ROM Information
+
+                    toolStripStatusLabel3.Text = "Leaf Green BPGE";
+
+                    #endregion Change ROM Information
+
+                    #endregion Check Currently Applied patches
                 }
                 if (other == true)
                 {
@@ -1384,6 +1495,111 @@ namespace HHOHOH
                 if (Emerald == true)
                 {
                     tabControl1.SelectedTab = eTab;
+                    #region Check Currently Applied patches
+
+                    #region disable check changes
+
+                    checkBox15.CheckedChanged -= checkBox15_CheckedChanged;
+                    checkBox16.CheckedChanged -= checkBox16_CheckedChanged;
+                    checkBox17.CheckedChanged -= checkBox17_CheckedChanged;
+                    checkBox18.CheckedChanged -= checkBox18_CheckedChanged;
+                    checkBox19.CheckedChanged -= checkBox19_CheckedChanged;
+                    checkBox20.CheckedChanged -= checkBox20_CheckedChanged;
+                    checkBox22.CheckedChanged -= checkBox22_CheckedChanged;
+                    #endregion disable check changes
+                    int patchINT = 0;
+                    #region Running Indoors
+
+                    checkBox17.Checked = CheckPatch(oRun, eRun, br, returnValue);
+
+                    #endregion Running Indoors
+
+                    #region Level 1 Babies
+
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(oEgg1, Egg1, br, patchINT);
+                    patchINT = +CheckPatch2(oEgg2, Egg2, br, patchINT);
+                    patchINT = +CheckPatch2(oEgg2, Egg3, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox15.Checked = true;
+                    }
+
+                    #endregion Level 1 Babies
+
+                    #region Deletable HMS
+
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(oHM, EMHM, br, patchINT);
+                    patchINT = +CheckPatch2(oHM, EMHM2, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox18.Checked = true;
+                    }
+
+                    #endregion Deletable HMS
+
+                    #region Seen instead of caught
+
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(SeenO, eSeen, br, patchINT);
+                    patchINT = +CheckPatch2(SeenO, eSeen4, br, patchINT);
+                    patchINT = +CheckPatch2(SeenO, eSeen2, br, patchINT);
+                    patchINT = +CheckPatch2(SeenO, eSeen3, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox20.Checked = true;
+                    }
+
+                    #endregion Seen instead of caught
+
+                    #region EV cap
+
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(oEV, eEV, br, patchINT);
+                    patchINT = +CheckPatch2(oEV, eEV2, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox22.Checked = true;
+                    }
+
+                    #endregion Seen instead of caught
+
+                    #region Pomeg Fix
+                    checkBox16.Checked = CheckPatch(oBerry, eBerry, br, returnValue);
+                    #endregion
+
+                    #region Birch
+                    patchINT = 0;
+                    patchINT = +CheckPatch2(oBirch, Birch, br, patchINT);
+                    patchINT = +CheckPatch2(oBackground, Background, br, patchINT);
+                    patchINT = +CheckPatch2(oIntro, Intro, br, patchINT);
+                    if (patchINT != 0)
+                    {
+                        checkBox19.Checked = true;
+                    }
+                    #endregion
+
+                    #region ReEnable Checked Event
+
+                    checkBox15.CheckedChanged += checkBox15_CheckedChanged;
+                    checkBox16.CheckedChanged += checkBox16_CheckedChanged;
+                    checkBox17.CheckedChanged += checkBox17_CheckedChanged;
+                    checkBox18.CheckedChanged += checkBox18_CheckedChanged;
+                    checkBox19.CheckedChanged += checkBox19_CheckedChanged;
+                    checkBox20.CheckedChanged += checkBox20_CheckedChanged;
+                    checkBox22.CheckedChanged += checkBox22_CheckedChanged;
+
+
+                    #endregion ReEnable Checked Event
+
+                    #region Change ROM Information
+
+                    toolStripStatusLabel3.Text = "Emerald BPEE";
+
+                    #endregion Change ROM Information
+
+                    #endregion Check Currently Applied patches
                 }
                 if (Ruby == true)
                 {
@@ -1398,19 +1614,19 @@ namespace HHOHOH
                 OpenROM = true;
                 try
                 {
-                    DirectoryInfo di = Directory.CreateDirectory(@"C:\ProgramData\HexHelper\Backups\");
-                    if (!File.Exists(@"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + ".bak"))
+                    DirectoryInfo di = Directory.CreateDirectory(Application.StartupPath + @"\Backups\");
+                    if (!File.Exists(Application.StartupPath + @"\Backups\" + Path.GetFileName(fileLocation) + ".bak"))
                     {
-                        File.Copy(fileLocation, @"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + ".bak");
+                        File.Copy(fileLocation, Application.StartupPath + @"\Backups\" + Path.GetFileName(fileLocation) + ".bak");
                     }
                     else
                     {
                         int d = 0;
                         for (int i = 1; i < 100; i++)
                         {
-                            if (!File.Exists(@"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + i + ".bak"))
+                            if (!File.Exists(Application.StartupPath + @"\Backups\" + Path.GetFileName(fileLocation) + i + ".bak"))
                             {
-                                File.Copy(fileLocation, @"C:\ProgramData\HexHelper\Backups\" + Path.GetFileName(fileLocation) + i + ".bak");
+                                File.Copy(fileLocation, Application.StartupPath + @"\Backups\" + Path.GetFileName(fileLocation) + i + ".bak");
                                 i = 110;
                                 d = 1;
                                 statusLabel.Text = res_man.GetString("backup_Status", cul);
@@ -1442,43 +1658,85 @@ namespace HHOHOH
             switch_language();
         }
 
-        //SA off set in ROM
         private void switch_language()
         {
-            if (lanInt == 1)
+            try
+            {
+                if (lanInt == 1)
             {
                 cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
                 MyIni.Write("Language", "1", "Settings");
             }
-            else if (lanInt == 2)
+            if (lanInt == 2)
             {
                 cul = CultureInfo.CreateSpecificCulture("fr");     //create culture for french
                 MyIni.Write("Language", "2", "Settings");
             }
-            else if (lanInt == 3)
+            if (lanInt == 3)
             {
-                cul = CultureInfo.CreateSpecificCulture("sp");     //create culture for spanish
+                cul = CultureInfo.CreateSpecificCulture("es");     //create culture for spanish
                 MyIni.Write("Language", "3", "Settings");
             }
-            else
+            if (lanInt == 4)
             {
-                cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
-                MyIni.Write("Language", "1", "Settings");
+                cul = CultureInfo.CreateSpecificCulture("ru");     //create culture for spanish
+                MyIni.Write("Language", "4", "Settings");
+            }
+            if (lanInt == 5)
+            {
+                cul = CultureInfo.CreateSpecificCulture("ch");     //create culture for spanish
+                MyIni.Write("Language", "5", "Settings");
             }
 
             #region strings
 
-            try
-            {
                 statusLabel.Text = res_man.GetString("welcome_Status", cul);
                 open.Text = res_man.GetString("open_Menu", cul);
                 debuggingModeToolStripMenuItem.Text = res_man.GetString("debugging_Menu", cul);
                 settingsToolStripMenuItem.Text = res_man.GetString("more_Menu", cul);
                 languageToolStripMenuItem.Text = res_man.GetString("languages_Menu", cul);
                 openBackupFolderToolStripMenuItem.Text = res_man.GetString("backup_Menu", cul);
+
+                #region Fire Red
+                checkBox1.Text = res_man.GetString("running_Text", cul);
+                checkBox2.Text = res_man.GetString("pokedex_Text", cul);
+                checkBox3.Text = res_man.GetString("grass_Text", cul);
+                checkBox4.Text = res_man.GetString("egg_Text", cul);
+                checkBox5.Text = res_man.GetString("hm_Text", cul);
+                checkBox6.Text = res_man.GetString("flashback_Text", cul);
+                checkBox7.Text = res_man.GetString("bw_Text", cul);
+                checkBox8.Text = res_man.GetString("mew_Text", cul);
+                checkBox9.Text = res_man.GetString("legend_Text", cul);
+                checkBox10.Text = res_man.GetString("runFlag_Text", cul);
+                checkBox11.Text = res_man.GetString("evo_Text", cul);
+                checkBox12.Text = res_man.GetString("dexSeen_Text", cul);
+                checkBox13.Text = res_man.GetString("poison_Text", cul);
+                checkBox14.Text = res_man.GetString("amap_Text", cul);
+                checkBox23.Text = res_man.GetString("ev_Text", cul);
+                #endregion
+
+                #region Emerald
+                checkBox15.Text = res_man.GetString("egg_Text", cul);
+                checkBox16.Text = res_man.GetString("pomeg_Text", cul);
+                checkBox17.Text = res_man.GetString("running_Text", cul);
+                checkBox18.Text = res_man.GetString("hm_Text", cul);
+                checkBox19.Text = res_man.GetString("birch_Text", cul);
+                checkBox20.Text = res_man.GetString("dexSeen_Text", cul);
+                checkBox22.Text = res_man.GetString("ev_Text", cul);
+                #endregion
+
+                #region leaf green
+                checkBox24.Text = res_man.GetString("running_Text", cul);
+                checkBox25.Text = res_man.GetString("pokedex_Text", cul);
+                checkBox26.Text = res_man.GetString("flashback_Text", cul);
+                checkBox27.Text = res_man.GetString("legend_Text", cul);
+                #endregion
             }
             catch
-            { MessageBox.Show("Something crashed while loading the languages files"); }
+            {
+                MessageBox.Show("Something crashed while loading the languages files");
+                MyIni.Write("Language", "1", "Settings");              
+            }
             #endregion strings
         }
 
@@ -1516,7 +1774,423 @@ namespace HHOHOH
 
         private void openBackupFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(@"C:\ProgramData\HexHelper\Backups\");
+            Process.Start(Application.StartupPath + @"\Backups\");
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lanInt = 4;
+            switch_language();
+        }
+
+        private void chineseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lanInt = 5;
+            switch_language();
+        }
+
+        #region Emerald Checkboxes
+        private void checkBox15_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Level 1 Babies
+
+            if (checkBox15.Checked == true)
+            {
+                try
+                {
+                    WriteData(nEgg1, Egg1);  //stuff here for file writing
+                    WriteData(nEgg2, Egg2);
+                    WriteData(nEgg3, Egg3);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox15.Checked == false)
+            {
+                try
+                {
+                    WriteData(oEgg1, Egg1);  //stuff here for file writing
+                    WriteData(oEgg1, Egg2);
+                    WriteData(oEgg1, Egg3);
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
+
+        }
+
+        private void checkBox16_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Pomeg Berry Fix
+
+            if (checkBox16.Checked == true)
+            {
+                try
+                {
+                    WriteData(nBerry, eBerry);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox16.Checked == false)
+            {
+                try
+                {
+                    WriteData(oBerry, eBerry); //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
+
+        }
+
+        private void checkBox17_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Running indoors
+            if (checkBox17.Checked == true)
+            {
+                try
+                {
+                    WriteData(nRun, eRun);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox17.Checked == false)
+            {
+                try
+                {
+                    WriteData(oRun, eRun);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+#endregion
+        }
+
+        private void checkBox18_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Deletable HMs
+            if (checkBox18.Checked == true)
+            {
+                try
+                {
+                    WriteData(HM, EMHM);  //stuff here for file writing
+                    WriteData(HM, EMHM2);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox18.Checked == false)
+            {
+                try
+                {
+                    WriteData(oHM, EMHM);  //stuff here for file writing
+                    WriteData(oHM, EMHM2);
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
+        }
+
+        private void checkBox19_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Remove Birch Intro
+            if (checkBox19.Checked == true)
+            {
+                try
+                {
+                    WriteData(IntroB, Intro);  //stuff here for file writing
+                    WriteData(BirchB, Birch);
+                    WriteData(BackB, Background);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox19.Checked == false)
+            {
+                try
+                {
+                    WriteData(oIntro, Intro);  //stuff here for file writing
+                    WriteData(oBirch, Birch);
+                    WriteData(oBackground, Background);
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
+        }
+
+        private void checkBox20_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Seen dex in menu
+            if (checkBox20.Checked == true)
+            {
+                try
+                {
+                    WriteData(eSeenB, eSeen);
+                    WriteData(eSeenB, eSeen2);
+                    WriteData(eSeenB, eSeen3);
+                    WriteData(eSeenB, eSeen4);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox20.Checked == false)
+            {
+                try
+                {
+                    WriteData(eSeenBo, eSeen);
+                    WriteData(eSeenBo, eSeen2);
+                    WriteData(eSeenBo, eSeen3);
+                    WriteData(eSeenBo, eSeen4);
+
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            #endregion
+        }
+        private void checkBox21_CheckedChanged(object sender, EventArgs e)
+        {
+            #region OW Poison
+            if (checkBox21.Checked == true)
+            {
+                try
+                {
+
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox21.Checked == false)
+            {
+                try
+                {
+
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            #endregion
+        }
+
+        private void checkBox22_CheckedChanged(object sender, EventArgs e)
+        {
+            #region EV Cap
+            if (checkBox22.Checked == true)
+            {
+                try
+                {
+                    WriteData(EV, eEV);  //stuff here for file writing
+                    WriteData(EV, eEV2);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox22.Checked == false)
+            {
+                try
+                {
+                    WriteData(oEV, eEV);  //stuff here for file writing
+                    WriteData(oEV, eEV2);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion
+        }
+        #endregion
+
+        #region lg check boxes
+        private void checkBox24_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Add/Remove Indoor Running
+
+            if (checkBox24.Checked == true)
+            {
+                try
+                {
+                    WriteData(nRun, lgRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox24.Checked == false)
+            {
+                try
+                {
+                    WriteData(oRun, lgRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Add/Remove Indoor Running
+
+        }
+
+        private void checkBox25_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Add/Remove FR Dex Fix
+
+            if (checkBox25.Checked == true)
+            {
+                try
+                {
+                    WriteData(nDex, lgDex);  //stuff here for file writing
+                    WriteData(nDex, lgDex2);
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox25.Checked == false)
+            {
+                try
+                {
+                    WriteData(oDex, lgDex);  //stuff here for file writing
+                    WriteData(oDex, lgDex2);
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Add/Remove FR Dex Fix
+
+        }
+
+        private void checkBox26_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Remove/Add Flash lg
+
+            if (checkBox26.Checked == true)
+            {
+                try
+                {
+                    WriteData(nFlash, lgFlash); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            else if (checkBox26.Checked == false)
+            {
+                try
+                {
+                    WriteData(oFlash, lgFlash); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Remove/Add Flash lg
+
+        }
+
+        private void checkBox27_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Fix Legend IVs
+
+            if (checkBox27.Checked == true)
+            {
+                try
+                {
+                    WriteData(newIV, FRLGIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox27.Checked == false)
+            {
+                try
+                {
+                    WriteData(oIV, FRLGIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Fix Legend IVs
+
+        }
+        #endregion
     }
 }

@@ -181,9 +181,54 @@
     <value>Backup Failed</value>
   </data>
   <data name="write_ERROR" xml:space="preserve">
-    <value />
+    <value>ERROR</value>
   </data>
   <data name="write_NoROM" xml:space="preserve">
     <value>ROM Missing</value>
+  </data>
+  <data name="amap_Text" xml:space="preserve">
+    <value>Fix A-Map Face Down bug</value>
+  </data>
+  <data name="bw_Warning" xml:space="preserve">
+    <value>This hack is for FireRed v1 only, and uses the freespace for around 0x80 bytes. If you have used this space it will overwrite it and delete your data which could result in corruption or a bad script. Click yes if you understand the risks.</value>
+  </data>
+  <data name="dexSeen_Text" xml:space="preserve">
+    <value>Dex Seen in menu</value>
+  </data>
+  <data name="egg_Text" xml:space="preserve">
+    <value>Level 1 Babies</value>
+  </data>
+  <data name="evo_Text" xml:space="preserve">
+    <value>Evolve without National Dex</value>
+  </data>
+  <data name="freespace_Warning" xml:space="preserve">
+    <value>Please enter a location of free space 0x80 bytes in length.Leave out '0x'.</value>
+  </data>
+  <data name="hm_Text" xml:space="preserve">
+    <value>Deletable HMs</value>
+  </data>
+  <data name="legend_Text" xml:space="preserve">
+    <value>Fix Legendary IV RNG</value>
+  </data>
+  <data name="notice_Warning" xml:space="preserve">
+    <value>Notice</value>
+  </data>
+  <data name="poison_Text" xml:space="preserve">
+    <value>Disable OW Poison</value>
+  </data>
+  <data name="runFlag_Text" xml:space="preserve">
+    <value>Running Shoes without flag</value>
+  </data>
+  <data name="warning_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="birch_Status" xml:space="preserve">
+    <value>Remove Birch Intro</value>
+  </data>
+  <data name="ev_Status" xml:space="preserve">
+    <value>252 EV Limit</value>
+  </data>
+  <data name="pomeg_Status" xml:space="preserve">
+    <value>Pomeg Berry Fix</value>
   </data>
 </root>

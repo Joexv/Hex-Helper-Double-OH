@@ -117,20 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="amap_Text" xml:space="preserve">
+    <value>Corregir un error de Face Down de un mapa</value>
+  </data>
+  <data name="backup_Menu" xml:space="preserve">
+    <value>Abrir carpeta de copia de seguridad</value>
+  </data>
+  <data name="backup_Status" xml:space="preserve">
+    <value>Creación de copia de seguridad</value>
+  </data>
+  <data name="backup_Status_Failed" xml:space="preserve">
+    <value>Error de copia de seguridad</value>
+  </data>
+  <data name="birch_Status" xml:space="preserve">
+    <value>Quitar Birch Intro</value>
+  </data>
   <data name="blankpage_Text" xml:space="preserve">
-    <value>Please Open a ROM or else snek will eat u</value>
+    <value>Por favor, abra una ROM o snek te va a comer u</value>
   </data>
   <data name="bw_Text" xml:space="preserve">
-    <value>BW Repel System</value>
+    <value>Sistema de Repulsión BW</value>
+  </data>
+  <data name="bw_Warning" xml:space="preserve">
+    <value>Este hack es sólo para FireRed v1 y usa el espacio libre para alrededor de 0x80 bytes. Si ha utilizado este espacio, lo sobrescribirá y borrará sus datos, lo que podría resultar en corrupción o un mal script. Haga clic en Sí si entiende los riesgos.</value>
   </data>
   <data name="debugging_Menu" xml:space="preserve">
-    <value>Debugging Mode</value>
+    <value>Modo de depuración</value>
+  </data>
+  <data name="dexSeen_Text" xml:space="preserve">
+    <value>Dex Visto en el menú</value>
+  </data>
+  <data name="egg_Text" xml:space="preserve">
+    <value>Bebés Nivel 1</value>
   </data>
   <data name="en_Menu" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="evo_Text" xml:space="preserve">
+    <value>Evolucionar sin Dex Nacional</value>
+  </data>
+  <data name="ev_Status" xml:space="preserve">
+    <value>252 Límite EV</value>
+  </data>
   <data name="flashback_Text" xml:space="preserve">
-    <value>Remove Flashbacks</value>
+    <value>Eliminar flashbacks</value>
+  </data>
+  <data name="freespace_Warning" xml:space="preserve">
+    <value>Por favor, introduzca una ubicación de espacio libre 0x80 bytes de longitud. Deje fuera '0x'.</value>
   </data>
   <data name="fr_Menu" xml:space="preserve">
     <value>Français</value>
@@ -139,36 +172,63 @@
     <value>Fire Red</value>
   </data>
   <data name="grass_Text" xml:space="preserve">
-    <value>Fix Tall Grass</value>
+    <value>Arreglar la hierba alta</value>
+  </data>
+  <data name="hm_Text" xml:space="preserve">
+    <value>HMs eliminables</value>
   </data>
   <data name="languages_Menu" xml:space="preserve">
-    <value>Languages</value>
+    <value>Idiomas</value>
+  </data>
+  <data name="legend_Text" xml:space="preserve">
+    <value>Fix Legendary IV RNG</value>
   </data>
   <data name="mew_Text" xml:space="preserve">
-    <value>Forced Mew Obediance</value>
+    <value>Mew Obediencia Forzada</value>
   </data>
   <data name="more_Menu" xml:space="preserve">
-    <value>More</value>
+    <value>Más</value>
+  </data>
+  <data name="notice_Warning" xml:space="preserve">
+    <value>darse cuenta</value>
   </data>
   <data name="open_Menu" xml:space="preserve">
-    <value>Open</value>
+    <value>Abierto</value>
+  </data>
+  <data name="poison_Text" xml:space="preserve">
+    <value>Desactivar OW Poison</value>
   </data>
   <data name="pokedex_Text" xml:space="preserve">
     <value>Pokedex Fix</value>
   </data>
+  <data name="pomeg_Status" xml:space="preserve">
+    <value>Reparación de la baya de Pomeg</value>
+  </data>
+  <data name="runFlag_Text" xml:space="preserve">
+    <value>Zapatos de running sin bandera</value>
+  </data>
   <data name="running_Text" xml:space="preserve">
-    <value>Running Indoors</value>
+    <value>Corriendo en el interior</value>
   </data>
   <data name="sp_Menu" xml:space="preserve">
     <value>Español</value>
   </data>
   <data name="Status_Add" xml:space="preserve">
-    <value>Added!</value>
+    <value>Adicional!</value>
   </data>
   <data name="Status_Remove" xml:space="preserve">
-    <value>Removed!</value>
+    <value>Remoto!</value>
+  </data>
+  <data name="warning_Warning" xml:space="preserve">
+    <value>Advertencia</value>
   </data>
   <data name="welcome_Status" xml:space="preserve">
     <value>Bienvenido!</value>
+  </data>
+  <data name="write_ERROR" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="write_NoROM" xml:space="preserve">
+    <value>Falta ROM</value>
   </data>
 </root>
