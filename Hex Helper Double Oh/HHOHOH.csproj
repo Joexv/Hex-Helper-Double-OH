@@ -92,16 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="IPS\Creator.cs" />
-    <Compile Include="IPS\Exceptions\Ips16MegabytesException.cs" />
-    <Compile Include="IPS\Exceptions\IpsIdenticalException.cs" />
-    <Compile Include="IPS\Exceptions\IpsInvalidException.cs" />
-    <Compile Include="IPS\Exceptions\IpsNotThisException.cs" />
-    <Compile Include="IPS\Exceptions\IpsScrambledException.cs" />
-    <Compile Include="IPS\Utils\Reader.cs" />
-    <Compile Include="IPS\Utils\Writer.cs" />
-    <Compile Include="IPS\Patcher.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IPS\Studier.cs" />
     <Compile Include="Resources\Res.es.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,7 +161,9 @@
       <LastGenOutput>Res.fr.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -193,6 +184,8 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <Content Include="hex.ico" />
+    <None Include="Resources\hex2.png" />
+    <EmbeddedResource Include="Resources\pictureBox1.Image.png" />
     <None Include="Resources\Icon1.ico" />
     <EmbeddedResource Include="Resources\Settings.ini" />
   </ItemGroup>
@@ -213,6 +206,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <UsingTask TaskName="CosturaCleanup" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
     <ParameterGroup>

@@ -129,7 +129,7 @@
   <data name="backup_Status_Failed" xml:space="preserve">
     <value>Error de copia de seguridad</value>
   </data>
-  <data name="birch_Status" xml:space="preserve">
+  <data name="birch_Text" xml:space="preserve">
     <value>Quitar Birch Intro</value>
   </data>
   <data name="blankpage_Text" xml:space="preserve">
@@ -156,7 +156,7 @@
   <data name="evo_Text" xml:space="preserve">
     <value>Evolucionar sin Dex Nacional</value>
   </data>
-  <data name="ev_Status" xml:space="preserve">
+  <data name="ev_Text" xml:space="preserve">
     <value>252 Límite EV</value>
   </data>
   <data name="flashback_Text" xml:space="preserve">
@@ -167,9 +167,6 @@
   </data>
   <data name="fr_Menu" xml:space="preserve">
     <value>Français</value>
-  </data>
-  <data name="fr_Name" xml:space="preserve">
-    <value>Fire Red</value>
   </data>
   <data name="grass_Text" xml:space="preserve">
     <value>Arreglar la hierba alta</value>
@@ -201,7 +198,7 @@
   <data name="pokedex_Text" xml:space="preserve">
     <value>Pokedex Fix</value>
   </data>
-  <data name="pomeg_Status" xml:space="preserve">
+  <data name="pomeg_Text" xml:space="preserve">
     <value>Reparación de la baya de Pomeg</value>
   </data>
   <data name="runFlag_Text" xml:space="preserve">
@@ -230,5 +227,8 @@
   </data>
   <data name="write_NoROM" xml:space="preserve">
     <value>Falta ROM</value>
+  </data>
+  <data name="help_Menu" xml:space="preserve">
+    <value>Ayuda</value>
   </data>
 </root>

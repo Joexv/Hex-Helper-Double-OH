@@ -228,4 +228,7 @@
   <data name="pomeg_Text" xml:space="preserve">
     <value>Pomeg Correction des baies</value>
   </data>
+  <data name="help_Menu" xml:space="preserve">
+    <value>Aidez-moi</value>
+  </data>
 </root>

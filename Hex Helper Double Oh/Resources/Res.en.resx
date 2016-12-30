@@ -222,13 +222,16 @@
   <data name="warning_Warning" xml:space="preserve">
     <value>Warning</value>
   </data>
-  <data name="birch_Status" xml:space="preserve">
+  <data name="birch_Text" xml:space="preserve">
     <value>Remove Birch Intro</value>
   </data>
-  <data name="ev_Status" xml:space="preserve">
+  <data name="ev_Text" xml:space="preserve">
     <value>252 EV Limit</value>
   </data>
-  <data name="pomeg_Status" xml:space="preserve">
+  <data name="pomeg_Text" xml:space="preserve">
     <value>Pomeg Berry Fix</value>
+  </data>
+  <data name="help_Menu" xml:space="preserve">
+    <value>Help</value>
   </data>
 </root>

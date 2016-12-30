@@ -11,7 +11,6 @@ using System.Resources;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Windows.Forms;
-using CodeIsle.LibIpsNet;
 using System.Diagnostics;
 
 namespace HHOHOH
@@ -379,10 +378,18 @@ namespace HHOHOH
 
         private static void ExtractSettings(string FileName)
         {
-            if (!File.Exists(@"C:\ProgramData\HexHelper\" + FileName))
+            if (!File.Exists(Application.StartupPath + FileName))
             {
-                DirectoryInfo di = Directory.CreateDirectory(@"C:\ProgramData\HexHelper\");
-                Extract("HHOHOH", @"C:\ProgramData\HexHelper\", "Resources", FileName);
+                Extract("HHOHOH", Application.StartupPath, "Resources", FileName);
+            }
+        }
+
+        private static void ExtractLanguage(string FileName)
+        {
+            if (!File.Exists(Application.StartupPath + "\\" + FileName + "\\" + "HHOHOH.resources.dll"))
+            {
+                DirectoryInfo di = Directory.CreateDirectory(Application.StartupPath + "\\" + FileName + "\\");
+                Extract("HHOHOH", Application.StartupPath + "\\" + FileName + "\\", "LanguageDLL", "HHOHOH.resources.dll");
             }
         }
 
@@ -1604,10 +1611,80 @@ namespace HHOHOH
                 if (Ruby == true)
                 {
                     tabControl1.SelectedTab = rTab;
+                    #region Check Currently Applied patches
+
+                    #region disable check changes
+
+                    checkBox30.CheckedChanged -= checkBox30_CheckedChanged;
+                    checkBox31.CheckedChanged -= checkBox31_CheckedChanged;
+
+                    #endregion disable check changes
+
+                    #region Running Indoors
+
+                    checkBox30.Checked = CheckPatch(oRun, rRun, br, returnValue);
+
+                    #endregion Running Indoors
+
+
+                    #region Legendary IV fix
+
+                    checkBox31.Checked = CheckPatch(oIV, RSIV, br, returnValue);
+
+                    #endregion Legendary IV fix                 
+
+                    #region ReEnable Checked Event
+
+                    checkBox30.CheckedChanged += checkBox30_CheckedChanged;
+                    checkBox31.CheckedChanged += checkBox31_CheckedChanged;
+                    #endregion ReEnable Checked Event
+
+                    #region Change ROM Information
+
+                    toolStripStatusLabel3.Text = "Ruby";
+
+                    #endregion Change ROM Information
+
+                    #endregion Check Currently Applied patches
                 }
                 if (Sapphire == true)
                 {
                     tabControl1.SelectedTab = sTab;
+                    #region Check Currently Applied patches
+
+                    #region disable check changes
+
+                    checkBox28.CheckedChanged -= checkBox28_CheckedChanged;
+                    checkBox29.CheckedChanged -= checkBox29_CheckedChanged;
+
+                    #endregion disable check changes
+
+                    #region Running Indoors
+
+                    checkBox28.Checked = CheckPatch(oRun, rRun, br, returnValue);
+
+                    #endregion Running Indoors
+
+
+                    #region Legendary IV fix
+
+                    checkBox29.Checked = CheckPatch(oIV, RSIV, br, returnValue);
+
+                    #endregion Legendary IV fix                 
+
+                    #region ReEnable Checked Event
+
+                    checkBox28.CheckedChanged += checkBox28_CheckedChanged;
+                    checkBox29.CheckedChanged += checkBox29_CheckedChanged;
+                    #endregion ReEnable Checked Event
+
+                    #region Change ROM Information
+
+                    toolStripStatusLabel3.Text = "Sapphire";
+
+                    #endregion Change ROM Information
+
+                    #endregion Check Currently Applied patches
                 }
                 fileLocation = ofd.FileName;
                 //Form1.Size = (363, 462);
@@ -1660,8 +1737,6 @@ namespace HHOHOH
 
         private void switch_language()
         {
-            try
-            {
                 if (lanInt == 1)
             {
                 cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
@@ -1689,13 +1764,15 @@ namespace HHOHOH
             }
 
             #region strings
-
+            try
+            {
                 statusLabel.Text = res_man.GetString("welcome_Status", cul);
                 open.Text = res_man.GetString("open_Menu", cul);
                 debuggingModeToolStripMenuItem.Text = res_man.GetString("debugging_Menu", cul);
                 settingsToolStripMenuItem.Text = res_man.GetString("more_Menu", cul);
                 languageToolStripMenuItem.Text = res_man.GetString("languages_Menu", cul);
                 openBackupFolderToolStripMenuItem.Text = res_man.GetString("backup_Menu", cul);
+                helpToolStripMenuItem.Text = res_man.GetString("help_Menu", cul);
 
                 #region Fire Red
                 checkBox1.Text = res_man.GetString("running_Text", cul);
@@ -1730,6 +1807,16 @@ namespace HHOHOH
                 checkBox25.Text = res_man.GetString("pokedex_Text", cul);
                 checkBox26.Text = res_man.GetString("flashback_Text", cul);
                 checkBox27.Text = res_man.GetString("legend_Text", cul);
+                #endregion
+
+                #region ruby
+                checkBox30.Text = res_man.GetString("running_Text", cul);
+                checkBox31.Text = res_man.GetString("legend_Text", cul);
+                #endregion
+
+                #region Sapphire
+                checkBox28.Text = res_man.GetString("running_Text", cul);
+                checkBox29.Text = res_man.GetString("legend_Text", cul);
                 #endregion
             }
             catch
@@ -2192,5 +2279,140 @@ namespace HHOHOH
 
         }
         #endregion
+
+        private void checkBox28_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Add/Remove Indoor Running
+
+            if (checkBox28.Checked == true)
+            {
+                try
+                {
+                    WriteData(nRun, sRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox28.Checked == false)
+            {
+                try
+                {
+                    WriteData(oRun, sRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Add/Remove Indoor Running
+
+        }
+
+        private void checkBox29_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Fix Legend IVs
+
+            if (checkBox29.Checked == true)
+            {
+                try
+                {
+                    WriteData(newIV, RSIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox29.Checked == false)
+            {
+                try
+                {
+                    WriteData(oIV, RSIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Fix Legend IVs
+
+        }
+
+        private void checkBox30_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Fix Legend IVs
+
+            if (checkBox30.Checked == true)
+            {
+                try
+                {
+                    WriteData(newIV, RSIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox30.Checked == false)
+            {
+                try
+                {
+                    WriteData(oIV, RSIV);  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Fix Legend IVs
+        }
+
+        private void checkBox31_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Add/Remove Indoor Running
+
+            if (checkBox31.Checked == true)
+            {
+                try
+                {
+                    WriteData(nRun, rRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Add", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+            if (checkBox31.Checked == false)
+            {
+                try
+                {
+                    WriteData(oRun, rRun); ;  //stuff here for file writing
+                    statusLabel.Text = res_man.GetString("Status_Remove", cul);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed! Please make sure that there is no other program with your ROM opened.");//Put messages here if you want...
+                }
+            }
+
+            #endregion Add/Remove Indoor Running
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.pokecommunity.com/showthread.php?t=338884");
+        }
     }
 }
