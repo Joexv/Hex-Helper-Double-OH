@@ -297,6 +297,16 @@ namespace HHOHOH
         //EM offset in ROM
         private long sRun = 0xE5E00;
 
+        private long AttackO = 0x137134;
+        private long DefenseO = 0x137158;
+        private long SAttackO = 0x13717C;
+        private long SDefenseO = 0x1371A4;
+        private long SpeedO = 0x1371C8;
+        private long RevertO = 0x1371F0;
+
+        private byte[] HookBytes = { 0x00, 0x49, 0x08, 0x47 };
+
+        private byte[] oAttackHookBytes = { 0x0A, 0x79, 0x32, 0x32 };
         #endregion Private Fields
 
         #region Public Constructors
@@ -1260,6 +1270,7 @@ namespace HHOHOH
                     checkBox13.CheckedChanged -= checkBox13_CheckedChanged;
                     checkBox14.CheckedChanged -= checkBox14_CheckedChanged;
                     checkBox23.CheckedChanged -= checkBox23_CheckedChanged;
+                    checkBox32.CheckedChanged -= checkBox32_CheckedChanged;
 
                     #endregion disable check changes
 
@@ -1407,6 +1418,10 @@ namespace HHOHOH
 
                     #endregion Seen instead of caught
 
+                    #region Colored Stats
+                    checkBox32.Checked = CheckPatch(oAttackHookBytes, AttackO, br, returnValue);
+                    #endregion
+
                     #region ReEnable Checked Event
 
                     checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -1424,6 +1439,7 @@ namespace HHOHOH
                     checkBox13.CheckedChanged += checkBox13_CheckedChanged;
                     checkBox14.CheckedChanged += checkBox14_CheckedChanged;
                     checkBox23.CheckedChanged += checkBox23_CheckedChanged;
+                    checkBox32.CheckedChanged += checkBox32_CheckedChanged;
 
                     #endregion ReEnable Checked Event
 
@@ -1709,7 +1725,7 @@ namespace HHOHOH
                                 statusLabel.Text = res_man.GetString("backup_Status", cul);
                             }
                         }
-                        if(d == 0)
+                        if (d == 0)
                         {
                             statusLabel.Text = res_man.GetString("backup_Status_Failed", cul);
                         }
@@ -1737,7 +1753,7 @@ namespace HHOHOH
 
         private void switch_language()
         {
-                if (lanInt == 1)
+            if (lanInt == 1)
             {
                 cul = CultureInfo.CreateSpecificCulture("en");    //create culture for english
                 MyIni.Write("Language", "1", "Settings");
@@ -1790,6 +1806,7 @@ namespace HHOHOH
                 checkBox13.Text = res_man.GetString("poison_Text", cul);
                 checkBox14.Text = res_man.GetString("amap_Text", cul);
                 checkBox23.Text = res_man.GetString("ev_Text", cul);
+                checkBox32.Text = res_man.GetString("st_Text", cul);
                 #endregion
 
                 #region Emerald
@@ -1822,7 +1839,7 @@ namespace HHOHOH
             catch
             {
                 MessageBox.Show("Something crashed while loading the languages files");
-                MyIni.Write("Language", "1", "Settings");              
+                MyIni.Write("Language", "1", "Settings");
             }
             #endregion strings
         }
@@ -1975,7 +1992,7 @@ namespace HHOHOH
                 }
             }
 
-#endregion
+            #endregion
         }
 
         private void checkBox18_CheckedChanged(object sender, EventArgs e)
@@ -2413,6 +2430,139 @@ namespace HHOHOH
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.pokecommunity.com/showthread.php?t=338884");
+        }
+
+        byte[] AttackBin = { 0x11, 0x68, 0x0A, 0x79, 0x32, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x0F, 0xB4, 0x15, 0x48, 0x00, 0x68, 0x15, 0x4A, 0x80, 0x18, 0x00, 0x21, 0x00, 0xF0, 0x1A, 0xF8, 0x00, 0xF0, 0x1A, 0xF8, 0x01, 0x28, 0x0F, 0xD0, 0x02, 0x28, 0x0D, 0xD0, 0x03, 0x28, 0x0B, 0xD0, 0x04, 0x28, 0x09, 0xD0, 0x05, 0x28, 0x09, 0xD0, 0x0A, 0x28, 0x07, 0xD0, 0x0F, 0x28, 0x05, 0xD0, 0x14, 0x28, 0x03, 0xD0, 0x06, 0x4E, 0x02, 0xE0, 0x06, 0x4E, 0x00, 0xE0, 0x06, 0x4E, 0x0F, 0xBC, 0x08, 0x49, 0x08, 0x47, 0x08, 0x4A, 0x10, 0x47, 0x08, 0x4A, 0x10, 0x47, 0xC0, 0x46, 0xA4, 0x3F, 0x46, 0x08, 0x56, 0x34, 0x12, 0x08, 0x56, 0x34, 0x12, 0x08, 0x40, 0xB1, 0x03, 0x02, 0x90, 0x32, 0x00, 0x00, 0x3D, 0x71, 0x13, 0x08, 0xE9, 0xFB, 0x03, 0x08, 0xB5, 0x2E, 0x04, 0x08 };
+        byte[] DefenseBin = { 0x11, 0x68, 0x8A, 0x79, 0x32, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x0F, 0xB4, 0x15, 0x48, 0x00, 0x68, 0x15, 0x4A, 0x80, 0x18, 0x00, 0x21, 0x00, 0xF0, 0x1A, 0xF8, 0x00, 0xF0, 0x1A, 0xF8, 0x01, 0x28, 0x11, 0xD0, 0x05, 0x28, 0x0D, 0xD0, 0x07, 0x28, 0x0B, 0xD0, 0x08, 0x28, 0x09, 0xD0, 0x09, 0x28, 0x07, 0xD0, 0x0B, 0x28, 0x07, 0xD0, 0x10, 0x28, 0x05, 0xD0, 0x15, 0x28, 0x03, 0xD0, 0x06, 0x4E, 0x02, 0xE0, 0x06, 0x4E, 0x00, 0xE0, 0x06, 0x4E, 0x0F, 0xBC, 0x08, 0x49, 0x08, 0x47, 0x08, 0x4A, 0x10, 0x47, 0x08, 0x4A, 0x10, 0x47, 0xC0, 0x46, 0xA4, 0x3F, 0x46, 0x08, 0x56, 0x34, 0x12, 0x08, 0x56, 0x34, 0x12, 0x08, 0x40, 0xB1, 0x03, 0x02, 0x90, 0x32, 0x00, 0x00, 0x63, 0x71, 0x13, 0x08, 0xE9, 0xFB, 0x03, 0x08, 0xB5, 0x2E, 0x04, 0x08 };
+        byte[] SAttackBin = { 0x42, 0x46, 0x11, 0x68, 0x0A, 0x7A, 0x32, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x0F, 0xB4, 0x15, 0x48, 0x00, 0x68, 0x15, 0x4A, 0x80, 0x18, 0x00, 0x21, 0x00, 0xF0, 0x1A, 0xF8, 0x00, 0xF0, 0x1A, 0xF8, 0x03, 0x28, 0x11, 0xD0, 0x08, 0x28, 0x0F, 0xD0, 0x0D, 0x28, 0x0D, 0xD0, 0x0F, 0x28, 0x09, 0xD0, 0x10, 0x28, 0x07, 0xD0, 0x11, 0x28, 0x05, 0xD0, 0x13, 0x28, 0x03, 0xD0, 0x17, 0x28, 0x03, 0xD0, 0x05, 0x4E, 0x02, 0xE0, 0x05, 0x4E, 0x00, 0xE0, 0x05, 0x4E, 0x0F, 0xBC, 0x07, 0x49, 0x08, 0x47, 0x07, 0x4A, 0x10, 0x47, 0x07, 0x4A, 0x10, 0x47, 0xA4, 0x3F, 0x46, 0x08, 0x56, 0x34, 0x12, 0x08, 0x56, 0x34, 0x12, 0x08, 0x40, 0xB1, 0x03, 0x02, 0x90, 0x32, 0x00, 0x00, 0x89, 0x71, 0x13, 0x08, 0xE9, 0xFB, 0x03, 0x08, 0xB5, 0x2E, 0x04, 0x08 };
+        byte[] SDefenseBin = { 0x11, 0x68, 0x8A, 0x7A, 0x32, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x0F, 0xB4, 0x15, 0x48, 0x00, 0x68, 0x15, 0x4A, 0x80, 0x18, 0x00, 0x21, 0x00, 0xF0, 0x1A, 0xF8, 0x00, 0xF0, 0x1A, 0xF8, 0x04, 0x28, 0x11, 0xD0, 0x09, 0x28, 0x0F, 0xD0, 0x0E, 0x28, 0x0D, 0xD0, 0x13, 0x28, 0x0B, 0xD0, 0x14, 0x28, 0x07, 0xD0, 0x15, 0x28, 0x05, 0xD0, 0x16, 0x28, 0x03, 0xD0, 0x17, 0x28, 0x01, 0xD0, 0x06, 0x4E, 0x02, 0xE0, 0x06, 0x4E, 0x00, 0xE0, 0x06, 0x4E, 0x0F, 0xBC, 0x08, 0x49, 0x08, 0x47, 0x08, 0x4A, 0x10, 0x47, 0x08, 0x4A, 0x10, 0x47, 0xC0, 0x46, 0xA4, 0x3F, 0x46, 0x08, 0x56, 0x34, 0x12, 0x08, 0x56, 0x34, 0x12, 0x08, 0x40, 0xB1, 0x03, 0x02, 0x90, 0x32, 0x00, 0x00, 0xAF, 0x71, 0x13, 0x08, 0xE9, 0xFB, 0x03, 0x08, 0xB5, 0x2E, 0x04, 0x08 };
+        byte[] SpeedBin = { 0x42, 0x46, 0x11, 0x68, 0x0A, 0x7B, 0x32, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x0F, 0xB4, 0x15, 0x48, 0x00, 0x68, 0x15, 0x4A, 0x80, 0x18, 0x00, 0x21, 0x00, 0xF0, 0x1A, 0xF8, 0x00, 0xF0, 0x1A, 0xF8, 0x02, 0x28, 0x11, 0xD0, 0x07, 0x28, 0x0F, 0xD0, 0x0A, 0x28, 0x0B, 0xD0, 0x0B, 0x28, 0x09, 0xD0, 0x0D, 0x28, 0x07, 0xD0, 0x0E, 0x28, 0x05, 0xD0, 0x11, 0x28, 0x05, 0xD0, 0x16, 0x28, 0x03, 0xD0, 0x05, 0x4E, 0x02, 0xE0, 0x05, 0x4E, 0x00, 0xE0, 0x05, 0x4E, 0x0F, 0xBC, 0x07, 0x49, 0x08, 0x47, 0x07, 0x4A, 0x10, 0x47, 0x07, 0x4A, 0x10, 0x47, 0xA4, 0x3F, 0x46, 0x08, 0x56, 0x34, 0x12, 0x08, 0x56, 0x34, 0x12, 0x08, 0x40, 0xB1, 0x03, 0x02, 0x90, 0x32, 0x00, 0x00, 0xD5, 0x71, 0x13, 0x08, 0xE9, 0xFB, 0x03, 0x08, 0xB5, 0x2E, 0x04, 0x08 };
+        byte[] RevertBin = { 0x11, 0x68, 0x8A, 0x7B, 0x0F, 0x32, 0x12, 0x06, 0x12, 0x0E, 0x01, 0x4E, 0x01, 0x49, 0x08, 0x47, 0xA4, 0x3F, 0x46, 0x08, 0xFB, 0x71, 0x13, 0x08 };
+
+
+        private void checkBox32_CheckedChanged(object sender, EventArgs e)
+        {
+            #region Add Colored Stats
+
+            if (checkBox32.Checked == true)
+            {
+                #region Record Offsets
+                DialogResult result = MessageBox.Show(res_man.GetString("st_Warning", cul), res_man.GetString("notice_Warning", cul), MessageBoxButtons.YesNo);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    string input = Microsoft.VisualBasic.Interaction.InputBox(res_man.GetString("freespace_Warning2", cul), "FreeSpace", "efff00", 0, 0);
+                    string vIn = input;
+                    int vOut = Convert.ToInt32(input, 16);
+                    // Store integer 182
+                    // Convert integer 182 as a hex in a string variable
+                    int long1 = vOut;
+                    long long2 = Convert.ToInt64(long1);
+
+                    long AtkRoutine = long2;
+                    long DefRoutine = long2 + 0x120;
+                    long SAtkRoutine = long2 + 0x240;
+                    long SDefRoutine = long2 + 0x360;
+                    long SpdRoutine = long2 + 0x480;
+                    long RevertRoutine = long2 + 0x600;
+                    long BlueFont = long2 + 0x630;
+                    long RedFont = long2 + 0x636;
+
+                    using (var tw = new StreamWriter(Application.StartupPath + @"ColoredStats.ini", true))
+                    {
+                        tw.WriteLine("[Routine_Offsets]");
+                        tw.WriteLine("Beginning_Offset = " + vIn);
+                        tw.WriteLine("Attack_Offset = " + AtkRoutine.ToString("X"));
+                        tw.WriteLine("Defense_Offset = " + DefRoutine.ToString("X"));
+                        tw.WriteLine("SAttack_Offset = " + SAtkRoutine.ToString("X"));
+                        tw.WriteLine("SDefense_Offset = " + SDefRoutine.ToString("X"));
+                        tw.WriteLine("Speed_Offset = " + SpdRoutine.ToString("X"));
+                        tw.WriteLine("Revert_Routine_Offset = " + RevertRoutine.ToString("X"));
+
+                        tw.WriteLine("[Font_Offsets]");
+                        tw.WriteLine("Blue = " + BlueFont.ToString("X"));
+                        tw.WriteLine("Red = " + RedFont.ToString("X"));
+                        tw.Close();
+                    }
+                    #endregion
+
+                    #region Fonts
+                    //Red Font: 00 01 0A 00
+                    //Blue Font: 00 07 0A 00
+                    byte[] BlueFontB = { 0x00, 0x07, 0x0A, 0x00 };
+                    byte[] RedFontB = { 0x00, 0x01, 0x0A, 0x00 };
+                    WriteData(BlueFontB, BlueFont);
+                    WriteData(RedFontB, RedFont);
+                    #endregion Fonts
+
+                    #region Attack
+                    // 00 49 08 47 XX XX XX XX at x137134
+                    WriteData(AttackBin, AtkRoutine);
+                    WriteData(HookBytes, AttackO);
+                    WriteReversedOffset(AtkRoutine, (AttackO + 4), 1);
+                    WriteReversedOffset(BlueFont, AtkRoutine + 0x60, 0);
+                    WriteReversedOffset(RedFont, AtkRoutine + 0x5C, 0);
+                    #endregion
+                    #region Defense
+                    // 00 49 08 47 XX XX XX XX at x137158
+                    WriteData(DefenseBin, DefRoutine);
+                    WriteData(HookBytes, DefenseO);
+                    WriteReversedOffset(DefRoutine, DefenseO + 4, 1);
+                    WriteReversedOffset(BlueFont, DefRoutine + 0x60, 0);
+                    WriteReversedOffset(RedFont, DefRoutine + 0x5C, 0);
+                    #endregion
+                    #region SAttack
+                    // 00 49 08 47 XX XX XX XX at x13717C
+                    WriteData(SAttackBin, SAtkRoutine);
+                    WriteData(HookBytes, SAttackO);
+                    WriteReversedOffset((SAtkRoutine), SAttackO + 4, 1);
+                    WriteReversedOffset(BlueFont, SAtkRoutine + 0x60, 0);
+                    WriteReversedOffset(RedFont, SAtkRoutine + 0x5C, 0);
+                    #endregion
+                    #region SDefense
+                    //00 49 08 47 XX XX XX XX at x1371A4
+                    WriteData(SDefenseBin, SDefRoutine);
+                    WriteData(HookBytes, SDefenseO);
+                    WriteReversedOffset(SDefRoutine, SDefenseO + 4, 1);
+                    WriteReversedOffset((BlueFont), SDefRoutine + 0x60);
+                    WriteReversedOffset((RedFont), SDefRoutine + 0x5C);
+                    #endregion
+                    #region Speed
+                    //00 49 08 47 XX XX XX XX at x1371C8
+                    WriteData(SpeedBin, SpdRoutine);
+                    WriteData(HookBytes, SpeedO);
+                    WriteReversedOffset((SpdRoutine), SpeedO + 4, 1);
+                    WriteReversedOffset((BlueFont), SpdRoutine + 0x60);
+                    WriteReversedOffset((RedFont), SpdRoutine + 0x5C);
+                    #endregion
+
+                    #region Revert To Black Font
+                    // 00 49 08 47 XX XX XX XX at 081371F0
+                    WriteData(RevertBin, RevertRoutine);
+                    WriteData(HookBytes, RevertO);
+                    WriteReversedOffset((RevertRoutine), RevertO + 4, 1);
+                    #endregion
+                }
+
+            }
+
+            #endregion
+
+            #region Remove Colored Stats
+            else if (checkBox32.Checked == false)
+            {
+                checkBox32.CheckedChanged -= checkBox32_CheckedChanged;
+                MessageBox.Show("Sorry this mod doesn't currently have an option to remove it! I would recommend checking for updates in the near future!");
+                checkBox32.Checked = true;
+                checkBox32.CheckedChanged += checkBox32_CheckedChanged;
+            }
+            #endregion
+        }
+
+        private void WriteReversedOffset(long input, long Location, int Add = 0)
+        {
+            int vOut2 = Convert.ToInt32((input + 0x08000000 + Add).ToString("X"), 16);
+            byte[] Final = BitConverter.GetBytes(vOut2);
+            WriteData(Final, Location);
         }
     }
 }

@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.frTab = new System.Windows.Forms.TabPage();
+            this.checkBox32 = new System.Windows.Forms.CheckBox();
             this.checkBox23 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
@@ -65,7 +66,11 @@
             this.checkBox25 = new System.Windows.Forms.CheckBox();
             this.checkBox24 = new System.Windows.Forms.CheckBox();
             this.sTab = new System.Windows.Forms.TabPage();
+            this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.checkBox31 = new System.Windows.Forms.CheckBox();
             this.rTab = new System.Windows.Forms.TabPage();
+            this.checkBox29 = new System.Windows.Forms.CheckBox();
+            this.checkBox28 = new System.Windows.Forms.CheckBox();
             this.dvTab = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -95,16 +100,12 @@
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chineseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openBackupFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.version2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.checkBox28 = new System.Windows.Forms.CheckBox();
-            this.checkBox29 = new System.Windows.Forms.CheckBox();
-            this.checkBox30 = new System.Windows.Forms.CheckBox();
-            this.checkBox31 = new System.Windows.Forms.CheckBox();
-            this.version2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.blankTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -166,6 +167,7 @@
             // 
             // frTab
             // 
+            this.frTab.Controls.Add(this.checkBox32);
             this.frTab.Controls.Add(this.checkBox23);
             this.frTab.Controls.Add(this.button1);
             this.frTab.Controls.Add(this.checkBox14);
@@ -190,6 +192,17 @@
             this.frTab.Text = "Fire Red";
             this.frTab.UseVisualStyleBackColor = true;
             this.frTab.Click += new System.EventHandler(this.frTab_Click);
+            // 
+            // checkBox32
+            // 
+            this.checkBox32.AutoSize = true;
+            this.checkBox32.Location = new System.Drawing.Point(158, 164);
+            this.checkBox32.Name = "checkBox32";
+            this.checkBox32.Size = new System.Drawing.Size(89, 17);
+            this.checkBox32.TabIndex = 16;
+            this.checkBox32.Text = "Colored Stats";
+            this.checkBox32.UseVisualStyleBackColor = true;
+            this.checkBox32.CheckedChanged += new System.EventHandler(this.checkBox32_CheckedChanged);
             // 
             // checkBox23
             // 
@@ -542,6 +555,28 @@
             this.sTab.Text = "Ruby";
             this.sTab.UseVisualStyleBackColor = true;
             // 
+            // checkBox30
+            // 
+            this.checkBox30.AutoSize = true;
+            this.checkBox30.Location = new System.Drawing.Point(3, 26);
+            this.checkBox30.Name = "checkBox30";
+            this.checkBox30.Size = new System.Drawing.Size(91, 17);
+            this.checkBox30.TabIndex = 3;
+            this.checkBox30.Text = "Legend IV Fix";
+            this.checkBox30.UseVisualStyleBackColor = true;
+            this.checkBox30.CheckedChanged += new System.EventHandler(this.checkBox30_CheckedChanged);
+            // 
+            // checkBox31
+            // 
+            this.checkBox31.AutoSize = true;
+            this.checkBox31.Location = new System.Drawing.Point(3, 3);
+            this.checkBox31.Name = "checkBox31";
+            this.checkBox31.Size = new System.Drawing.Size(104, 17);
+            this.checkBox31.TabIndex = 2;
+            this.checkBox31.Text = "Running Indoors";
+            this.checkBox31.UseVisualStyleBackColor = true;
+            this.checkBox31.CheckedChanged += new System.EventHandler(this.checkBox31_CheckedChanged);
+            // 
             // rTab
             // 
             this.rTab.Controls.Add(this.checkBox29);
@@ -552,6 +587,28 @@
             this.rTab.TabIndex = 4;
             this.rTab.Text = "Sapphire";
             this.rTab.UseVisualStyleBackColor = true;
+            // 
+            // checkBox29
+            // 
+            this.checkBox29.AutoSize = true;
+            this.checkBox29.Location = new System.Drawing.Point(3, 26);
+            this.checkBox29.Name = "checkBox29";
+            this.checkBox29.Size = new System.Drawing.Size(91, 17);
+            this.checkBox29.TabIndex = 1;
+            this.checkBox29.Text = "Legend IV Fix";
+            this.checkBox29.UseVisualStyleBackColor = true;
+            this.checkBox29.CheckedChanged += new System.EventHandler(this.checkBox29_CheckedChanged);
+            // 
+            // checkBox28
+            // 
+            this.checkBox28.AutoSize = true;
+            this.checkBox28.Location = new System.Drawing.Point(3, 3);
+            this.checkBox28.Name = "checkBox28";
+            this.checkBox28.Size = new System.Drawing.Size(104, 17);
+            this.checkBox28.TabIndex = 0;
+            this.checkBox28.Text = "Running Indoors";
+            this.checkBox28.UseVisualStyleBackColor = true;
+            this.checkBox28.CheckedChanged += new System.EventHandler(this.checkBox28_CheckedChanged);
             // 
             // dvTab
             // 
@@ -818,21 +875,21 @@
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
             // frenchToolStripMenuItem
             // 
             this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-            this.frenchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frenchToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.frenchToolStripMenuItem.Text = "Français";
             this.frenchToolStripMenuItem.Click += new System.EventHandler(this.frenchToolStripMenuItem_Click);
             // 
             // spanishToolStripMenuItem
             // 
             this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
-            this.spanishToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.spanishToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.spanishToolStripMenuItem.Text = "Español";
             this.spanishToolStripMenuItem.Click += new System.EventHandler(this.spanishToolStripMenuItem_Click);
             // 
@@ -840,7 +897,7 @@
             // 
             this.testToolStripMenuItem.Enabled = false;
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.testToolStripMenuItem.Text = "Russian";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
@@ -848,7 +905,7 @@
             // 
             this.chineseToolStripMenuItem.Enabled = false;
             this.chineseToolStripMenuItem.Name = "chineseToolStripMenuItem";
-            this.chineseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chineseToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.chineseToolStripMenuItem.Text = "Chinese";
             this.chineseToolStripMenuItem.Click += new System.EventHandler(this.chineseToolStripMenuItem_Click);
             // 
@@ -858,6 +915,19 @@
             this.openBackupFolderToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.openBackupFolderToolStripMenuItem.Text = "Open Backup Folder";
             this.openBackupFolderToolStripMenuItem.Click += new System.EventHandler(this.openBackupFolderToolStripMenuItem_Click);
+            // 
+            // version2000ToolStripMenuItem
+            // 
+            this.version2000ToolStripMenuItem.Name = "version2000ToolStripMenuItem";
+            this.version2000ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.version2000ToolStripMenuItem.Text = "Version 2.0.1.0";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -889,63 +959,6 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
-            // 
-            // checkBox28
-            // 
-            this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(3, 3);
-            this.checkBox28.Name = "checkBox28";
-            this.checkBox28.Size = new System.Drawing.Size(104, 17);
-            this.checkBox28.TabIndex = 0;
-            this.checkBox28.Text = "Running Indoors";
-            this.checkBox28.UseVisualStyleBackColor = true;
-            this.checkBox28.CheckedChanged += new System.EventHandler(this.checkBox28_CheckedChanged);
-            // 
-            // checkBox29
-            // 
-            this.checkBox29.AutoSize = true;
-            this.checkBox29.Location = new System.Drawing.Point(3, 26);
-            this.checkBox29.Name = "checkBox29";
-            this.checkBox29.Size = new System.Drawing.Size(91, 17);
-            this.checkBox29.TabIndex = 1;
-            this.checkBox29.Text = "Legend IV Fix";
-            this.checkBox29.UseVisualStyleBackColor = true;
-            this.checkBox29.CheckedChanged += new System.EventHandler(this.checkBox29_CheckedChanged);
-            // 
-            // checkBox30
-            // 
-            this.checkBox30.AutoSize = true;
-            this.checkBox30.Location = new System.Drawing.Point(3, 26);
-            this.checkBox30.Name = "checkBox30";
-            this.checkBox30.Size = new System.Drawing.Size(91, 17);
-            this.checkBox30.TabIndex = 3;
-            this.checkBox30.Text = "Legend IV Fix";
-            this.checkBox30.UseVisualStyleBackColor = true;
-            this.checkBox30.CheckedChanged += new System.EventHandler(this.checkBox30_CheckedChanged);
-            // 
-            // checkBox31
-            // 
-            this.checkBox31.AutoSize = true;
-            this.checkBox31.Location = new System.Drawing.Point(3, 3);
-            this.checkBox31.Name = "checkBox31";
-            this.checkBox31.Size = new System.Drawing.Size(104, 17);
-            this.checkBox31.TabIndex = 2;
-            this.checkBox31.Text = "Running Indoors";
-            this.checkBox31.UseVisualStyleBackColor = true;
-            this.checkBox31.CheckedChanged += new System.EventHandler(this.checkBox31_CheckedChanged);
-            // 
-            // version2000ToolStripMenuItem
-            // 
-            this.version2000ToolStripMenuItem.Name = "version2000ToolStripMenuItem";
-            this.version2000ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.version2000ToolStripMenuItem.Text = "Version 2.0.0.0";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1068,6 +1081,7 @@
         private System.Windows.Forms.CheckBox checkBox31;
         private System.Windows.Forms.ToolStripMenuItem version2000ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox32;
     }
 }
 

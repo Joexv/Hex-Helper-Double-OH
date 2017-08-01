@@ -234,4 +234,13 @@
   <data name="help_Menu" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="freespace_Warning2" xml:space="preserve">
+    <value>Please enter a location of free space 0x650 bytes in length.Leave out '0x'.</value>
+  </data>
+  <data name="st_Text" xml:space="preserve">
+    <value>Colored Stats</value>
+  </data>
+  <data name="st_Warning" xml:space="preserve">
+    <value>This hack is for FireRed v1 only, and uses the freespace for around 0x650 bytes. If you have used this space it will overwrite it and delete your data which could result in corruption or a bad script. Click yes if you understand the risks.</value>
+  </data>
 </root>
